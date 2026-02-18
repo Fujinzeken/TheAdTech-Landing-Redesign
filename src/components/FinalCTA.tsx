@@ -3,8 +3,11 @@
 import { motion } from "framer-motion";
 import { ArrowRight } from "lucide-react";
 import Link from "next/link";
+import { useTranslations } from "next-intl";
 
 const FinalCTA = () => {
+  const t = useTranslations("FinalCTA");
+
   return (
     <section id="contact" className="relative py-28 md:py-36 overflow-hidden">
       {/* Background gradient mesh */}
@@ -23,15 +26,14 @@ const FinalCTA = () => {
             className="text-[clamp(2.2rem,5vw,3.8rem)] font-bold leading-[1.08] tracking-[-0.03em] mb-6"
             style={{ fontFamily: "var(--font-syne)" }}
           >
-            <span className="text-gradient-subtle">Ready to build</span>
+            {t("headline.line1")}
             <br />
-            <span className="text-gradient-subtle">something </span>
-            <span className="text-gradient-main">extraordinary?</span>
+            {t("headline.line2")}{" "}
+            <span className="text-gradient-main">{t("headline.line3")}</span>
           </h2>
 
-          <p className="text-white/35 text-base md:text-lg leading-relaxed max-w-xl mx-auto mb-10">
-            Let&apos;s talk about your next project. We&apos;ll scope it, plan
-            it, and ship it — faster than you thought possible.
+          <p className="text-white/70 text-base md:text-lg leading-relaxed max-w-xl mx-auto mb-10">
+            {t("subtitle")}
           </p>
 
           <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
@@ -53,7 +55,7 @@ const FinalCTA = () => {
                     "linear-gradient(135deg, #7c3aed 0%, #3b82f6 50%, #7c3aed 100%)",
                 }}
               />
-              <span className="relative z-10">Get a Free Quote</span>
+              <span className="relative z-10">{t("ctaQuote")}</span>
               <ArrowRight
                 size={15}
                 className="relative z-10 group-hover:translate-x-0.5 transition-transform duration-200"
@@ -62,9 +64,9 @@ const FinalCTA = () => {
 
             <a
               href="mailto:info@theadtech.uz"
-              className="text-sm text-white/30 hover:text-white/60 transition-colors duration-300"
+              className="text-sm text-white/50 hover:text-white transition-colors duration-300"
             >
-              or email us directly →
+              {t("ctaEmail")} →
             </a>
           </div>
         </motion.div>

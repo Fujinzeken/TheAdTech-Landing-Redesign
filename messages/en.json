@@ -1,0 +1,275 @@
+{
+  "Navbar": {
+    "home": "Home",
+    "about": "About",
+    "portfolio": "Portfolio",
+    "services": "Services",
+    "contact": "Contact",
+    "getQuote": "Get a Quote",
+    "toggleMenu": "Toggle menu",
+    "brandFirst": "The",
+    "brandSecond": "AdTech",
+    "brandName": "The AdTech"
+  },
+  "Hero": {
+    "status": "Available for new projects",
+    "headline": {
+      "line1": "We build software",
+      "line2": "that redefines",
+      "line3": "what's possible."
+    },
+    "subtitle": "From concept to deployment — we craft high-performing digital products that give your business an unfair advantage.",
+    "ctaQuote": "Get a Quote",
+    "ctaWork": "See Our Work",
+    "marquee": {
+      "customSoftware": "Custom Software",
+      "webApps": "Web Applications",
+      "mobileApps": "Mobile Apps",
+      "cloud": "Cloud Architecture",
+      "ai": "AI Solutions",
+      "devops": "DevOps & CI/CD",
+      "uiux": "UI/UX Design",
+      "api": "API Development"
+    },
+    "trust": "Trusted by forward-thinking teams",
+    "partners": {
+      "akhmadTea": "Akhmad Tea",
+      "gacMotor": "GAC Motor",
+      "kpi": "KPI",
+      "orientMotors": "Orient Motors",
+      "riada": "Riada",
+      "simma": "Simma"
+    }
+  },
+  "Testimonials": {
+    "label": "Testimonials",
+    "headline": "What our customers are saying",
+    "items": {
+      "ernest": {
+        "quote": "Outstanding dedication to excellence, exceptional support received. Impressive service!",
+        "author": "Ernest Smith",
+        "role": "Developer at Unixity"
+      },
+      "stella": {
+        "quote": "Expertise made all the difference, absolute pleasure to work with. Exceeded our expectations.",
+        "author": "Stella Smith",
+        "role": "Engineer at Unify"
+      },
+      "thomas": {
+        "quote": "I highly recommend this agency. Testing for our project was done everything top-notch",
+        "author": "Thomas Smith",
+        "role": "Designer at Converta"
+      }
+    }
+  },
+  "Process": {
+    "label": "How We Work",
+    "headline": {
+      "line1": "From idea to launch,",
+      "line2": "in four phases."
+    },
+    "steps": {
+      "discovery": {
+        "title": "Discovery",
+        "description": "We dive deep into your goals, users, and constraints. Research-driven strategy that eliminates guesswork."
+      },
+      "design": {
+        "title": "Design",
+        "description": "Interactive prototypes and system architecture. You see and feel the product before a single line of code."
+      },
+      "develop": {
+        "title": "Develop",
+        "description": "Agile sprints with weekly demos. Clean, tested, documented code shipped in predictable intervals."
+      },
+      "deploy": {
+        "title": "Deploy",
+        "description": "Launch with confidence. CI/CD pipelines, monitoring, and ongoing support to keep you scaling."
+      }
+    }
+  },
+  "FinalCTA": {
+    "headline": {
+      "line1": "Ready to build",
+      "line2": "something",
+      "line3": "extraordinary?"
+    },
+    "subtitle": "Let's talk about your next project. We'll scope it, plan it, and ship it — faster than you thought possible.",
+    "ctaQuote": "Get a Free Quote",
+    "ctaEmail": "or email us directly"
+  },
+  "Services": {
+    "label": "Our Expertise",
+    "headline": "What we build",
+    "description": "Six core competencies, one unified team. We cover the full stack so you don't have to juggle vendors.",
+    "items": {
+      "web": {
+        "title": "Web / Frontend",
+        "description": "Pixel-perfect interfaces built with React, Next.js, and modern frameworks. Responsive, performant, and accessible."
+      },
+      "backend": {
+        "title": "Backend / APIs",
+        "description": "Scalable server-side architecture, RESTful & GraphQL APIs, microservices, and real-time systems that handle millions of requests."
+      },
+      "cloud": {
+        "title": "Cloud & DevOps",
+        "description": "Infrastructure as code, CI/CD pipelines, and cloud-native deployments on AWS, Azure, and GCP."
+      },
+      "mobile": {
+        "title": "Mobile Apps",
+        "description": "Native and cross-platform mobile experiences for iOS and Android with smooth animations and offline-first architecture."
+      },
+      "qa": {
+        "title": "QA & Testing",
+        "description": "Automated test suites, regression testing, security audits, and CI-integrated quality assurance pipelines."
+      },
+      "integrations": {
+        "title": "Integrations",
+        "description": "Seamless third-party integrations, data pipelines, webhooks, and message queues connecting your entire tech stack."
+      }
+    }
+  },
+  "Augmentation": {
+    "label": "Staff Augmentation",
+    "headline": {
+      "line1": "Build or extend",
+      "line2": "your dev team."
+    },
+    "description": "Skip the 6-month hiring cycle. Embed our senior engineers directly into your workflow — same timezone, same standups, same commitment.",
+    "cta": "Start Building",
+    "stats": {
+      "engineers": "Engineers",
+      "experience": "Years of Delivery",
+      "projects": "Projects Shipped",
+      "retention": "Client Retention"
+    }
+  },
+  "Clients": {
+    "label": "Trusted by forward-thinking companies"
+  },
+  "GetQuoteForm": {
+    "success": {
+      "title": "Request Received",
+      "message": "Thank you for reaching out. Our team will review your project details and get back to you within 24 hours.",
+      "back": "Back to Home"
+    },
+    "labels": {
+      "name": "Name*",
+      "email": "Email*",
+      "phone": "Phone / WhatsApp / Telegram",
+      "company": "Company / Organization",
+      "projectType": "Project Type*",
+      "description": "Project Description*"
+    },
+    "placeholders": {
+      "name": "Your full name",
+      "email": "you@company.com",
+      "phone": "+1 (555) 000-0000",
+      "company": "Acme Inc.",
+      "description": "Tell us about your project, goals, and timeline..."
+    },
+    "projectTypes": {
+      "web": "Web Development",
+      "mobile": "Mobile App Development",
+      "ai": "AI & Machine Learning",
+      "cloud": "Cloud Architecture",
+      "design": "UI/UX Design",
+      "other": "Other"
+    },
+    "submit": "Submit Request",
+    "error": "Submission failed. Please try again or contact info@theadtech.uz directly."
+  },
+  "OrbitalVisual": {
+    "uptime": {
+      "label": "Uptime",
+      "status": "Live"
+    },
+    "projects": {
+      "label": "Projects Delivered",
+      "status": "Growing"
+    },
+    "response": {
+      "label": "Response Time",
+      "status": "Fast"
+    }
+  },
+  "DashboardMockup": {
+    "site": "app.theadtech.uz/dashboard",
+    "brand": "The AdTech",
+    "tier": "Enterprise",
+    "platform": "Platform",
+    "menu": {
+      "overview": "Overview",
+      "analytics": "Analytics",
+      "projects": "Projects",
+      "deployments": "Deployments",
+      "integrations": "Integrations"
+    },
+    "team": "Team",
+    "periods": {
+      "7d": "7D",
+      "30d": "30D",
+      "90d": "90D"
+    },
+    "actions": {
+      "export": "Export",
+      "deploy": "+ Deploy"
+    },
+    "metrics": {
+      "revenue": "Revenue",
+      "users": "Users",
+      "latency": "Latency",
+      "uptime": "Uptime"
+    },
+    "activity": {
+      "title": "Deployment Activity",
+      "deploys": "Deploys",
+      "errors": "Errors"
+    }
+  },
+  "Footer": {
+    "description": "Empowering businesses through cutting-edge digital solutions. From conceptualization to deployment, we build the future of tech.",
+    "status": "Available for new ventures",
+    "sections": {
+      "company": "Company",
+      "services": "Services",
+      "contact": "Get In Touch"
+    },
+    "links": {
+      "about": "About Us",
+      "portfolio": "Portfolio",
+      "services": "Services",
+      "contact": "Contact",
+      "web": "Web Development",
+      "backend": "Backend & APIs",
+      "mobile": "Mobile Apps",
+      "cloud": "Cloud & DevOps"
+    },
+    "rights": "© {year} TheAdTech. All rights reserved.",
+    "privacy": "Privacy",
+    "terms": "Terms"
+  },
+  "GetQuotePage": {
+    "backToHome": "Back to Home",
+    "headline": {
+      "part1": "Let's build something ",
+      "accent": "extraordinary",
+      "part2": " together."
+    },
+    "description": "Whether you have a fully scoped project or just a seedling of an idea, we're here to help you redefine what's possible.",
+    "perks": {
+      "strategy": {
+        "title": "Rapid Strategy",
+        "desc": "Get a high-level roadmap within 48 hours."
+      },
+      "engineering": {
+        "title": "Expert Engineering",
+        "desc": "Top 1% talent dedicated to your architecture."
+      },
+      "collaboration": {
+        "title": "Direct Collaboration",
+        "desc": "Work closely with our founders and core team."
+      }
+    },
+    "formTitle": "Send us a project request"
+  }
+}

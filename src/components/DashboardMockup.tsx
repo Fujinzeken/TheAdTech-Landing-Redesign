@@ -2,18 +2,71 @@
 
 import React from "react";
 import { motion } from "framer-motion";
+import { useTranslations } from "next-intl";
 
 const DashboardMockup = () => {
+  const t = useTranslations("DashboardMockup");
+
   // SVG line chart path data — realistic revenue curve
   const chartPath =
     "M 0 80 C 20 75, 40 70, 60 55 C 80 40, 100 45, 120 35 C 140 25, 160 30, 180 20 C 200 10, 220 15, 240 8 C 260 5, 280 12, 300 6 C 320 3, 340 8, 360 2";
   const chartFill =
     "M 0 80 C 20 75, 40 70, 60 55 C 80 40, 100 45, 120 35 C 140 25, 160 30, 180 20 C 200 10, 220 15, 240 8 C 260 5, 280 12, 300 6 C 320 3, 340 8, 360 2 L 360 100 L 0 100 Z";
 
+  const menuItems = [
+    { label: t("menu.overview"), active: true, icon: "◫", key: "overview" },
+    { label: t("menu.analytics"), active: false, icon: "◩", key: "analytics" },
+    { label: t("menu.projects"), active: false, icon: "▦", key: "projects" },
+    {
+      label: t("menu.deployments"),
+      active: false,
+      icon: "△",
+      key: "deployments",
+    },
+    {
+      label: t("menu.integrations"),
+      active: false,
+      icon: "⬡",
+      key: "integrations",
+    },
+  ];
+
+  const metrics = [
+    {
+      label: t("metrics.revenue"),
+      value: "$124.5k",
+      delta: "+23.5%",
+      up: true,
+      key: "revenue",
+    },
+    {
+      label: t("metrics.users"),
+      value: "84,232",
+      delta: "+12.3%",
+      up: true,
+      key: "users",
+    },
+    {
+      label: t("metrics.latency"),
+      value: "42ms",
+      delta: "-8.1%",
+      up: true,
+      key: "latency",
+    },
+    {
+      label: t("metrics.uptime"),
+      value: "99.98%",
+      delta: "+0.02%",
+      up: true,
+      key: "uptime",
+    },
+  ];
+
   return (
     <motion.div
       initial={{ opacity: 0, y: 80, rotateX: 12 }}
-      animate={{ opacity: 1, y: 0, rotateX: 2 }}
+      whileInView={{ opacity: 1, y: 0, rotateX: 2 }}
+      viewport={{ once: true }}
       transition={{
         duration: 1.4,
         delay: 0.5,
@@ -47,7 +100,7 @@ const DashboardMockup = () => {
                 <rect x="3" y="11" width="18" height="11" rx="2" />
                 <path d="M7 11V7a5 5 0 0110 0v4" />
               </svg>
-              app.theadtech.uz/dashboard
+              {t("site")}
             </div>
           </div>
           <div className="w-16" />
@@ -63,24 +116,18 @@ const DashboardMockup = () => {
               </div>
               <div>
                 <div className="text-[11px] font-semibold text-white/80">
-                  AdTech
+                  {t("brand")}
                 </div>
-                <div className="text-[9px] text-white/20">Enterprise</div>
+                <div className="text-[9px] text-white/20">{t("tier")}</div>
               </div>
             </div>
 
             <div className="text-[9px] font-medium text-white/15 uppercase tracking-wider px-2 mb-2">
-              Platform
+              {t("platform")}
             </div>
-            {[
-              { label: "Overview", active: true, icon: "◫" },
-              { label: "Analytics", active: false, icon: "◩" },
-              { label: "Projects", active: false, icon: "▦" },
-              { label: "Deployments", active: false, icon: "△" },
-              { label: "Integrations", active: false, icon: "⬡" },
-            ].map((item) => (
+            {menuItems.map((item) => (
               <div
-                key={item.label}
+                key={item.key}
                 className={`flex items-center gap-2 px-2.5 py-[7px] rounded-lg text-[11px] mb-0.5 ${
                   item.active
                     ? "bg-white/[0.06] text-white/90 font-medium"
@@ -94,7 +141,7 @@ const DashboardMockup = () => {
 
             <div className="mt-auto pt-4 border-t border-white/[0.04]">
               <div className="text-[9px] font-medium text-white/15 uppercase tracking-wider px-2 mb-2">
-                Team
+                {t("team")}
               </div>
               <div className="flex -space-x-1.5 px-2">
                 {["#3b82f6", "#7c3aed", "#00d4ff", "#ef4444"].map((c, i) => (
@@ -117,46 +164,41 @@ const DashboardMockup = () => {
             <div className="flex items-center justify-between mb-5">
               <div className="flex items-center gap-3">
                 <h3 className="text-[13px] font-semibold text-white/90">
-                  Overview
+                  {t("menu.overview")}
                 </h3>
                 <div className="flex gap-1">
-                  {["7D", "30D", "90D"].map((p, i) => (
+                  {[
+                    { key: "7d", label: t("periods.7d") },
+                    { key: "30d", label: t("periods.30d") },
+                    { key: "90d", label: t("periods.90d") },
+                  ].map((p, i) => (
                     <span
-                      key={p}
+                      key={p.key}
                       className={`px-2 py-0.5 rounded text-[9px] ${i === 1 ? "bg-white/[0.06] text-white/70" : "text-white/20"}`}
                     >
-                      {p}
+                      {p.label}
                     </span>
                   ))}
                 </div>
               </div>
               <div className="flex gap-2">
                 <div className="px-2.5 py-1 rounded-md bg-white/[0.04] text-[10px] text-white/30">
-                  Export
+                  {t("actions.export")}
                 </div>
                 <div className="px-2.5 py-1 rounded-md bg-accent-blue/20 text-[10px] text-accent-cyan/90 font-medium">
-                  + Deploy
+                  {t("actions.deploy")}
                 </div>
               </div>
             </div>
 
             {/* Metric cards */}
             <div className="grid grid-cols-2 lg:grid-cols-4 gap-3 mb-5">
-              {[
-                {
-                  label: "Revenue",
-                  value: "$124.5k",
-                  delta: "+23.5%",
-                  up: true,
-                },
-                { label: "Users", value: "84,232", delta: "+12.3%", up: true },
-                { label: "Latency", value: "42ms", delta: "-8.1%", up: true },
-                { label: "Uptime", value: "99.98%", delta: "+0.02%", up: true },
-              ].map((m, i) => (
+              {metrics.map((m, i) => (
                 <motion.div
-                  key={m.label}
+                  key={m.key}
                   initial={{ opacity: 0, y: 10 }}
-                  animate={{ opacity: 1, y: 0 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
                   transition={{ delay: 1.2 + i * 0.08, duration: 0.5 }}
                   className="p-3 rounded-lg bg-white/[0.02] border border-white/[0.04]"
                 >
@@ -184,14 +226,16 @@ const DashboardMockup = () => {
             <div className="p-4 rounded-lg bg-white/[0.02] border border-white/[0.04]">
               <div className="flex justify-between items-center mb-3">
                 <span className="text-[11px] font-medium text-white/50">
-                  Deployment Activity
+                  {t("activity.title")}
                 </span>
                 <div className="flex items-center gap-4 text-[9px] text-white/20">
                   <span className="flex items-center gap-1">
-                    <span className="w-2 h-px bg-accent-cyan"></span> Deploys
+                    <span className="w-2 h-px bg-accent-cyan"></span>{" "}
+                    {t("activity.deploys")}
                   </span>
                   <span className="flex items-center gap-1">
-                    <span className="w-2 h-px bg-accent-violet"></span> Errors
+                    <span className="w-2 h-px bg-accent-violet"></span>{" "}
+                    {t("activity.errors")}
                   </span>
                 </div>
               </div>
@@ -223,7 +267,8 @@ const DashboardMockup = () => {
                   d={chartFill}
                   fill="url(#chartGrad)"
                   initial={{ opacity: 0 }}
-                  animate={{ opacity: 1 }}
+                  whileInView={{ opacity: 1 }}
+                  viewport={{ once: true }}
                   transition={{ delay: 1.6, duration: 1 }}
                 />
                 {/* Line */}
@@ -234,7 +279,8 @@ const DashboardMockup = () => {
                   strokeWidth="1.5"
                   strokeLinecap="round"
                   initial={{ pathLength: 0, opacity: 0 }}
-                  animate={{ pathLength: 1, opacity: 1 }}
+                  whileInView={{ pathLength: 1, opacity: 1 }}
+                  viewport={{ once: true }}
                   transition={{ delay: 1.4, duration: 1.5, ease: "easeInOut" }}
                 />
                 {/* Glow dot at end */}
@@ -244,7 +290,8 @@ const DashboardMockup = () => {
                   r="3"
                   fill="#00d4ff"
                   initial={{ opacity: 0, scale: 0 }}
-                  animate={{ opacity: 1, scale: 1 }}
+                  whileInView={{ opacity: 1, scale: 1 }}
+                  viewport={{ once: true }}
                   transition={{ delay: 2.8, duration: 0.4 }}
                 />
                 <motion.circle
@@ -254,7 +301,8 @@ const DashboardMockup = () => {
                   fill="#00d4ff"
                   opacity={0.2}
                   initial={{ opacity: 0, scale: 0 }}
-                  animate={{ opacity: 0.2, scale: 1 }}
+                  whileInView={{ opacity: 0.2, scale: 1 }}
+                  viewport={{ once: true }}
                   transition={{ delay: 2.8, duration: 0.4 }}
                 />
               </svg>

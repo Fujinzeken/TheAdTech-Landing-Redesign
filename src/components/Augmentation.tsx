@@ -4,6 +4,7 @@ import React from "react";
 import { motion, useMotionValue, useTransform, animate } from "framer-motion";
 import { ArrowRight } from "lucide-react";
 import { useEffect, useRef } from "react";
+import { useTranslations } from "next-intl";
 
 function AnimatedCounter({
   value,
@@ -35,14 +36,16 @@ function AnimatedCounter({
   return <motion.span ref={ref}>{display}</motion.span>;
 }
 
-const stats = [
-  { value: 50, suffix: "+", label: "Engineers" },
-  { value: 6, suffix: "+", label: "Years of Delivery" },
-  { value: 150, suffix: "+", label: "Projects Shipped" },
-  { value: 99, suffix: "%", label: "Client Retention" },
-];
-
 const Augmentation = () => {
+  const t = useTranslations("Augmentation");
+
+  const stats = [
+    { value: 50, suffix: "+", label: t("stats.engineers"), key: "engineers" },
+    { value: 6, suffix: "+", label: t("stats.experience"), key: "experience" },
+    { value: 150, suffix: "+", label: t("stats.projects"), key: "projects" },
+    { value: 99, suffix: "%", label: t("stats.retention"), key: "retention" },
+  ];
+
   return (
     <section id="about" className="relative py-24 md:py-32 overflow-hidden">
       {/* Background band */}
@@ -58,21 +61,18 @@ const Augmentation = () => {
             transition={{ duration: 0.7, ease: [0.22, 1, 0.36, 1] }}
           >
             <span className="text-[11px] uppercase tracking-[0.25em] text-accent-violet/60 font-medium mb-4 block">
-              Staff Augmentation
+              {t("label")}
             </span>
             <h2
               className="text-[clamp(2rem,4vw,3.2rem)] font-bold leading-[1.1] tracking-[-0.02em] mb-6"
               style={{ fontFamily: "var(--font-syne)" }}
             >
-              <span className="text-gradient-subtle">Build or extend</span>
+              {t("headline.line1")}
               <br />
-              <span className="text-gradient-subtle">your </span>
-              <span className="text-gradient-main">dev team.</span>
+              {t("headline.line2")}
             </h2>
-            <p className="text-white/35 text-base leading-relaxed max-w-md mb-8">
-              Skip the 6-month hiring cycle. Embed our senior engineers directly
-              into your workflow — same timezone, same standups, same
-              commitment.
+            <p className="text-white/60 text-base leading-relaxed max-w-md mb-8">
+              {t("description")}
             </p>
             <a
               href="/get-quote"
@@ -81,7 +81,7 @@ const Augmentation = () => {
                 background: "linear-gradient(135deg, #3b82f6 0%, #7c3aed 100%)",
               }}
             >
-              Start Building
+              {t("cta")}
               <ArrowRight
                 size={15}
                 className="group-hover:translate-x-0.5 transition-transform duration-200"
@@ -93,7 +93,7 @@ const Augmentation = () => {
           <div className="grid grid-cols-2 gap-4">
             {stats.map((stat, i) => (
               <motion.div
-                key={stat.label}
+                key={stat.key}
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true, margin: "-50px" }}
@@ -110,7 +110,7 @@ const Augmentation = () => {
                 >
                   <AnimatedCounter value={stat.value} suffix={stat.suffix} />
                 </div>
-                <div className="text-[11px] text-white/25 uppercase tracking-wider">
+                <div className="text-[11px] text-white/50 uppercase tracking-wider">
                   {stat.label}
                 </div>
               </motion.div>

@@ -2,8 +2,11 @@
 
 import React from "react";
 import { motion } from "framer-motion";
+import { useTranslations } from "next-intl";
 
 const OrbitalVisual = () => {
+  const t = useTranslations("OrbitalVisual");
+
   const rings = [
     { size: 280, duration: 25, direction: 1, opacity: 0.12, delay: 0.6 },
     { size: 380, duration: 35, direction: -1, opacity: 0.08, delay: 0.9 },
@@ -17,6 +20,30 @@ const OrbitalVisual = () => {
     { ring: 1, angle: 310, color: "#3b82f6", size: 5 },
     { ring: 2, angle: 80, color: "#7c3aed", size: 6 },
     { ring: 2, angle: 250, color: "#00d4ff", size: 4 },
+  ];
+
+  const floatingCards = [
+    {
+      key: "uptime",
+      initialValue: "99.98%",
+      position: "top-[8%] right-[2%]",
+      delay: 1.5,
+      animDelay: "0s",
+    },
+    {
+      key: "projects",
+      initialValue: "150+",
+      position: "bottom-[12%] left-[0%]",
+      delay: 1.8,
+      animDelay: "2s",
+    },
+    {
+      key: "response",
+      initialValue: "< 2hrs",
+      position: "top-[35%] right-[-5%]",
+      delay: 2.1,
+      animDelay: "4s",
+    },
   ];
 
   return (
@@ -143,62 +170,32 @@ const OrbitalVisual = () => {
       ))}
 
       {/* Floating metric cards */}
-      <motion.div
-        initial={{ opacity: 0, y: 20 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ delay: 1.5, duration: 0.7 }}
-        className="floating-card absolute top-[8%] right-[2%] px-3.5 py-2.5 z-20"
-        style={{ animationDelay: "0s" }}
-      >
-        <div className="text-[9px] text-white/30 uppercase tracking-wider mb-0.5">
-          Uptime
-        </div>
-        <div
-          className="text-sm font-semibold text-white/90"
-          style={{ fontFamily: "var(--font-space)" }}
+      {floatingCards.map((card) => (
+        <motion.div
+          key={card.key}
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ delay: card.delay, duration: 0.7 }}
+          className={`floating-card absolute ${card.position} px-3.5 py-2.5 z-20`}
+          style={{ animationDelay: card.animDelay }}
         >
-          99.98%
-        </div>
-        <span className="text-[9px] text-emerald-400/80">● Live</span>
-      </motion.div>
-
-      <motion.div
-        initial={{ opacity: 0, y: 20 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ delay: 1.8, duration: 0.7 }}
-        className="floating-card absolute bottom-[12%] left-[0%] px-3.5 py-2.5 z-20"
-        style={{ animationDelay: "2s" }}
-      >
-        <div className="text-[9px] text-white/30 uppercase tracking-wider mb-0.5">
-          Projects Delivered
-        </div>
-        <div
-          className="text-sm font-semibold text-white/90"
-          style={{ fontFamily: "var(--font-space)" }}
-        >
-          150+
-        </div>
-        <span className="text-[9px] text-accent-blue/80">↗ Growing</span>
-      </motion.div>
-
-      <motion.div
-        initial={{ opacity: 0, y: 20 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ delay: 2.1, duration: 0.7 }}
-        className="floating-card absolute top-[35%] right-[-5%] px-3.5 py-2.5 z-20"
-        style={{ animationDelay: "4s" }}
-      >
-        <div className="text-[9px] text-white/30 uppercase tracking-wider mb-0.5">
-          Response Time
-        </div>
-        <div
-          className="text-sm font-semibold text-white/90"
-          style={{ fontFamily: "var(--font-space)" }}
-        >
-          {"< 2hrs"}
-        </div>
-        <span className="text-[9px] text-accent-violet/80">◆ Fast</span>
-      </motion.div>
+          <div className="text-[9px] text-white/40 uppercase tracking-wider mb-0.5">
+            {t(`${card.key}.label`)}
+          </div>
+          <div
+            className="text-sm font-semibold text-white/90"
+            style={{ fontFamily: "var(--font-space)" }}
+          >
+            {card.initialValue}
+          </div>
+          <span
+            className={`text-[9px] ${card.key === "uptime" ? "text-emerald-400/80" : card.key === "projects" ? "text-accent-blue/80" : "text-accent-violet/80"}`}
+          >
+            {card.key === "uptime" ? "●" : card.key === "projects" ? "↗" : "◆"}{" "}
+            {t(`${card.key}.status`)}
+          </span>
+        </motion.div>
+      ))}
     </div>
   );
 };

@@ -6,20 +6,22 @@ import { ArrowRight } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
 import OrbitalVisual from "./OrbitalVisual";
-
-const marqueeItems = [
-  "Custom Software",
-  "Web Applications",
-  "Mobile Apps",
-  "Cloud Architecture",
-  "AI Solutions",
-  "DevOps & CI/CD",
-  "UI/UX Design",
-  "API Development",
-];
+import { useTranslations } from "next-intl";
 
 const Hero = () => {
+  const t = useTranslations("Hero");
   const spotlightRef = useRef<HTMLDivElement>(null);
+
+  const marqueeKeys = [
+    "customSoftware",
+    "webApps",
+    "mobileApps",
+    "cloud",
+    "ai",
+    "devops",
+    "uiux",
+    "api",
+  ];
 
   const handleMouseMove = useCallback((e: React.MouseEvent<HTMLElement>) => {
     const el = e.currentTarget;
@@ -91,10 +93,10 @@ const Hero = () => {
                 animate="visible"
                 className="mb-6"
               >
-                <div className="inline-flex items-center gap-2.5 px-4 py-2 rounded-full border border-white/[0.06] bg-white/[0.03]">
+                <div className="inline-flex items-center gap-2.5 px-4 py-2 rounded-full border border-white/6 bg-white/3">
                   <span className="status-dot" />
                   <span className="text-[12px] text-white/40 tracking-wide">
-                    Available for new projects
+                    {t("status")}
                   </span>
                 </div>
               </motion.div>
@@ -108,12 +110,16 @@ const Hero = () => {
                 className="text-[clamp(2.6rem,6vw,4.5rem)] font-bold leading-[1.1] tracking-[-0.03em] mb-6"
                 style={{ fontFamily: "var(--font-syne)" }}
               >
-                <span className="text-gradient-subtle">We build software</span>
+                <span className="text-gradient-subtle">
+                  {t("headline.line1")}
+                </span>
                 <br />
-                <span className="text-gradient-subtle">that redefines</span>
+                <span className="text-gradient-subtle">
+                  {t("headline.line2")}
+                </span>
                 <br />
                 <span className="headline-underline shimmer-text">
-                  {"what's possible."}
+                  {t("headline.line3")}
                 </span>
               </motion.h1>
 
@@ -123,10 +129,9 @@ const Hero = () => {
                 variants={fadeUp}
                 initial="hidden"
                 animate="visible"
-                className="text-base md:text-lg text-white/40 max-w-md leading-relaxed mb-10"
+                className="text-base md:text-lg text-white/60 max-w-md leading-relaxed mb-10"
               >
-                From concept to deployment — we craft high-performing digital
-                products that give your business an unfair advantage.
+                {t("subtitle")}
               </motion.p>
 
               {/* CTAs */}
@@ -157,7 +162,7 @@ const Hero = () => {
                         "linear-gradient(135deg, #7c3aed 0%, #3b82f6 50%, #7c3aed 100%)",
                     }}
                   />
-                  <span className="relative z-10">Get a Quote</span>
+                  <span className="relative z-10">{t("ctaQuote")}</span>
                   <ArrowRight
                     size={15}
                     className="relative z-10 group-hover:translate-x-0.5 transition-transform duration-200"
@@ -166,10 +171,10 @@ const Hero = () => {
 
                 <Link
                   href="/portfolio"
-                  className="group inline-flex items-center gap-2 text-sm text-white/35 hover:text-white/70 transition-colors duration-300"
+                  className="group inline-flex items-center gap-2 text-sm text-white/60 hover:text-white/80 transition-colors duration-300"
                 >
                   <span className="relative">
-                    See Our Work
+                    {t("ctaWork")}
                     <span className="absolute left-0 bottom-[-2px] w-0 group-hover:w-full h-px bg-white/30 transition-all duration-300" />
                   </span>
                   <ArrowRight
@@ -201,17 +206,17 @@ const Hero = () => {
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ delay: 1.2, duration: 1 }}
-          className="border-t border-b border-white/[0.04] py-5 overflow-hidden"
+          className="border-t border-b border-white/4 py-5 overflow-hidden"
         >
           <div className="marquee-track">
             {/* Double the items for seamless loop */}
-            {[...marqueeItems, ...marqueeItems].map((item, i) => (
+            {[...marqueeKeys, ...marqueeKeys].map((key, i) => (
               <span
                 key={i}
-                className="flex items-center gap-6 px-6 text-[11px] uppercase tracking-[0.25em] text-white/15 font-medium whitespace-nowrap"
+                className="flex items-center gap-6 px-6 text-[11px] uppercase tracking-[0.25em] text-white/40 font-medium whitespace-nowrap"
               >
-                <span>{item}</span>
-                <span className="w-1 h-1 rounded-full bg-white/10" />
+                <span>{t(`marquee.${key}`)}</span>
+                <span className="w-1 h-1 rounded-full bg-white/20" />
               </span>
             ))}
           </div>
@@ -224,20 +229,30 @@ const Hero = () => {
           transition={{ delay: 1.6, duration: 1 }}
           className="py-14"
         >
-          <p className="text-center text-[10px] uppercase tracking-[0.25em] text-white/15 mb-8">
-            Trusted by forward-thinking teams
+          <p className="text-center text-[10px] uppercase tracking-[0.25em] text-white/60 mb-8">
+            {t("trust")}
           </p>
           <div className="flex flex-wrap items-center justify-center gap-10 md:gap-14 px-6 max-w-5xl mx-auto">
             {[
-              { name: "Akhmad Tea", path: "/images/logos/akhmad-tea.png" },
-              { name: "GAC Motor", path: "/images/logos/gac-motor.png" },
-              { name: "KPI", path: "/images/logos/kpi.png" },
               {
-                name: "Orient Motors",
+                name: t("partners.akhmadTea"),
+                path: "/images/logos/akhmad-tea.png",
+              },
+              {
+                name: t("partners.gacMotor"),
+                path: "/images/logos/gac-motor.png",
+              },
+              { name: t("partners.kpi"), path: "/images/logos/kpi.png" },
+              {
+                name: t("partners.orientMotors"),
                 path: "/images/logos/orient-motors.png",
               },
-              { name: "Riada", path: "/images/logos/riada.png", light: true },
-              { name: "Simma", path: "/images/logos/simma.png" },
+              {
+                name: t("partners.riada"),
+                path: "/images/logos/riada.png",
+                light: true,
+              },
+              { name: t("partners.simma"), path: "/images/logos/simma.png" },
             ].map((logo, i) => (
               <motion.div
                 key={logo.name}
@@ -249,7 +264,7 @@ const Hero = () => {
                 }`}
               >
                 <div
-                  className={`relative w-24 h-8 ${logo.name === "Orient Motors" ? "scale-140" : ""}`}
+                  className={`relative w-24 h-8 ${logo.name === t("partners.orientMotors") ? "scale-140" : ""}`}
                 >
                   <Image
                     src={logo.path}

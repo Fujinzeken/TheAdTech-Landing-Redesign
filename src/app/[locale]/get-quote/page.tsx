@@ -2,13 +2,31 @@
 
 import React from "react";
 import { motion } from "framer-motion";
-import Link from "next/link";
 import { ArrowLeft, Orbit } from "lucide-react";
 import GetQuoteForm from "@/components/GetQuoteForm";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
+import { Link } from "@/i18n/navigation";
+import { useTranslations } from "next-intl";
 
 export default function GetQuotePage() {
+  const t = useTranslations("GetQuotePage");
+
+  const perks = [
+    {
+      title: t("perks.strategy.title"),
+      desc: t("perks.strategy.desc"),
+    },
+    {
+      title: t("perks.engineering.title"),
+      desc: t("perks.engineering.desc"),
+    },
+    {
+      title: t("perks.collaboration.title"),
+      desc: t("perks.collaboration.desc"),
+    },
+  ];
+
   return (
     <main className="min-h-screen bg-background selection:bg-accent-blue/30 selection:text-white overflow-hidden">
       <Navbar />
@@ -24,7 +42,7 @@ export default function GetQuotePage() {
             className="inline-flex items-center gap-2 text-white/40 hover:text-accent-blue text-sm transition-colors group mb-8"
           >
             <ArrowLeft className="w-4 h-4 group-hover:-translate-x-1 transition-transform" />
-            Back to Home
+            {t("backToHome")}
           </Link>
 
           <div className="grid lg:grid-cols-[1fr,1.2fr] gap-16 items-start">
@@ -38,30 +56,17 @@ export default function GetQuotePage() {
                 className="text-[clamp(2.5rem,6vw,4rem)] font-bold leading-[1.1] tracking-[-0.03em] text-gradient mb-6"
                 style={{ fontFamily: "var(--font-syne)" }}
               >
-                Let&apos;s build something{" "}
-                <span className="italic">extraordinary</span> together.
+                {t("headline.part1")}
+                <span className="italic">{t("headline.accent")}</span>
+                {t("headline.part2")}
               </h1>
               <p className="text-lg text-white/60 mb-10 max-w-lg leading-relaxed">
-                Whether you have a fully scoped project or just a seedling of an
-                idea, we&apos;re here to help you redefine what&apos;s possible.
+                {t("description")}
               </p>
 
               {/* Perks/Trust items */}
               <div className="space-y-6">
-                {[
-                  {
-                    title: "Rapid Strategy",
-                    desc: "Get a high-level roadmap within 48 hours.",
-                  },
-                  {
-                    title: "Expert Engineering",
-                    desc: "Top 1% talent dedicated to your architecture.",
-                  },
-                  {
-                    title: "Direct Collaboration",
-                    desc: "Work closely with our founders and core team.",
-                  },
-                ].map((item, i) => (
+                {perks.map((item, i) => (
                   <motion.div
                     key={item.title}
                     initial={{ opacity: 0, y: 10 }}
@@ -109,7 +114,7 @@ export default function GetQuotePage() {
                     className="text-2xl font-bold text-white mb-8"
                     style={{ fontFamily: "var(--font-syne)" }}
                   >
-                    Send us a project request
+                    {t("formTitle")}
                   </h2>
                   <GetQuoteForm />
                 </div>

@@ -1,0 +1,275 @@
+{
+  "Navbar": {
+    "home": "Asosiy",
+    "about": "Biz haqimizda",
+    "portfolio": "Portfolio",
+    "services": "Xizmatlar",
+    "contact": "Aloqa",
+    "getQuote": "Narxni bilish",
+    "toggleMenu": "Menyuni ochish",
+    "brandFirst": "The",
+    "brandSecond": "AdTech",
+    "brandName": "The AdTech"
+  },
+  "Hero": {
+    "status": "Yangi loyihalar uchun ochiqmiz",
+    "headline": {
+      "line1": "Biz imkoniyatlar",
+      "line2": "chegarasini kengaytiruvchi",
+      "line3": "dasturlar yaratamiz."
+    },
+    "subtitle": "G'oyadan amalga oshirishgacha — biz biznesingizga ustunlik beruvchi yuqori samarali raqamli mahsulotlarni yaratamiz.",
+    "ctaQuote": "Narxni bilish",
+    "ctaWork": "Ishlarimizni ko'ring",
+    "marquee": {
+      "customSoftware": "Maxsus dasturlar",
+      "webApps": "Veb-ilovalar",
+      "mobileApps": "Mobil ilovalar",
+      "cloud": "Bulutli arxitektura",
+      "ai": "AI echimlari",
+      "devops": "DevOps va CI/CD",
+      "uiux": "UI/UX dizayn",
+      "api": "API ishlab chiqish"
+    },
+    "trust": "Peshqadam jamoalar bizga ishonishadi",
+    "partners": {
+      "akhmadTea": "Akhmad Tea",
+      "gacMotor": "GAC Motor",
+      "kpi": "KPI",
+      "orientMotors": "Orient Motors",
+      "riada": "Riada",
+      "simma": "Simma"
+    }
+  },
+  "Testimonials": {
+    "label": "Mijozlar fikri",
+    "headline": "Mijozlarimiz nima deyishadi",
+    "items": {
+      "ernest": {
+        "quote": "Mukammallikka intilish va ajoyib yordam. Juda kuchli servis!",
+        "author": "Ernest Smith",
+        "role": "Unixity dasturchisi"
+      },
+      "stella": {
+        "quote": "Tajriba hamma narsani hal qildi, ular bilan ishlash zavqli. Kutilganidan ham a'lo.",
+        "author": "Stella Smith",
+        "role": "Unify muhandisi"
+      },
+      "thomas": {
+        "quote": "Ushbu agentlikni tavsiya qilaman. Loyihamizni sinovdan o'tkazish yuqori darajada bo'ldi.",
+        "author": "Thomas Smith",
+        "role": "Converta dizayneri"
+      }
+    }
+  },
+  "Process": {
+    "label": "Ishlash uslubimiz",
+    "headline": {
+      "line1": "G'oyadan ishga tushirishgacha,",
+      "line2": "to'rt bosqichda."
+    },
+    "steps": {
+      "discovery": {
+        "title": "Tadqiqot",
+        "description": "Biz sizning maqsad va cheklovlaringizni chuqur o'rganamiz. Ma'lumotlarga asoslangan strategiya xatolarni yo'qotadi."
+      },
+      "design": {
+        "title": "Dizayn",
+        "description": "Interaktiv prototiplar va tizim arxitekturasi. Mahsulotni kod yozilishidan oldin ko'rasiz."
+      },
+      "develop": {
+        "title": "Ishlab chiqish",
+        "description": "Agile uslubidagi haftalik demo-namoyishlar. Toza, sinovdan o'tgan kod belgilangan vaqtda."
+      },
+      "deploy": {
+        "title": "Ishga tushirish",
+        "description": "Ishonchli start. CI/CD tizimlari, monitoring va doimiy texnik yordam."
+      }
+    }
+  },
+  "FinalCTA": {
+    "headline": {
+      "line1": "G'ayritabiiy",
+      "line2": "narsa yaratishga",
+      "line3": "tayyormisiz?"
+    },
+    "subtitle": "Keyingi loyihangizni muhokama qilaylik. Biz uni rejalashtiramiz va siz kutgandan tezroq amalga oshiramiz.",
+    "ctaQuote": "Bepul baholash",
+    "ctaEmail": "yoki to'g'ridan-to'g'ri yozing"
+  },
+  "Services": {
+    "label": "Bizning tajribamiz",
+    "headline": "Nimalar quramiz",
+    "description": "Oltita asosiy yo'nalish, bitta jamoa. Biz butun texnologik tsiklni qamrab olamiz.",
+    "items": {
+      "web": {
+        "title": "Veb / Front-end",
+        "description": "React, Next.js va zamonaviy freymvorklarda yaratilgan mukammal interfeyslar. Moslashuvchan va tezkor."
+      },
+      "backend": {
+        "title": "Bek-end / API",
+        "description": "Kengayuvchi server arxitekturasi, REST va GraphQL API, mikroxizmatlar va real vaqtdagi tizimlar."
+      },
+      "cloud": {
+        "title": "Bulutli texnologiyalar va DevOps",
+        "description": "Infratuzilma kod sifatida, CI/CD tizimlari va AWS, Azure va GCP-da bulutli joylashtirish."
+      },
+      "mobile": {
+        "title": "Mobil ilovalar",
+        "description": "iOS va Android uchun silliq animatsiyali nativ va kross-platforma ilovalar."
+      },
+      "qa": {
+        "title": "QA va Sinov",
+        "description": "Avtomatlashtirilgan testlar, xavfsizlik auditi va sifatni nazorat qilish tizimlari."
+      },
+      "integrations": {
+        "title": "Integratsiyalar",
+        "description": "Uchinchi tomon xizmatlari bilan uzviy bog'liqlik, ma'lumotlar quvurlari va xabar navbatlari."
+      }
+    }
+  },
+  "Augmentation": {
+    "label": "Autstaffing",
+    "headline": {
+      "line1": "Dasturchilar jamoangizni",
+      "line2": "shakllantiring yoki kengaytiring."
+    },
+    "description": "Olti oylik ishga olish jarayonini o'tkazib yuboring. Bizning muhandislarni o'z jarayoningizga qo'shing — bir xil vaqt zonasi, bir xil majlislar.",
+    "cta": "Ishni boshlash",
+    "stats": {
+      "engineers": "Muhandislar",
+      "experience": "Yillik tajriba",
+      "projects": "Loyihalar",
+      "retention": "Mijozlar sodiqligi"
+    }
+  },
+  "Clients": {
+    "label": "Oldi kompaniyalar bizga ishonishadi"
+  },
+  "GetQuoteForm": {
+    "success": {
+      "title": "So'rov qabul qilindi",
+      "message": "Bog'langaningiz uchun rahmat. Jamoamiz tafsilotlarni ko'rib chiqadi va 24 soat ichida siz bilan bog'lanadi.",
+      "back": "Asosiy sahifaga qaytish"
+    },
+    "labels": {
+      "name": "Ism*",
+      "email": "Elektron pochta*",
+      "phone": "Telefon / WhatsApp / Telegram",
+      "company": "Kompaniya / Tashkilot",
+      "projectType": "Loyiha turi*",
+      "description": "Loyiha tavsifi*"
+    },
+    "placeholders": {
+      "name": "To'liq ismingiz",
+      "email": "siz@kompaniya.uz",
+      "phone": "+998 (__) ___-____",
+      "company": "Kompaniya nomi",
+      "description": "Loyihangiz, maqsadlaringiz va muddatlaringiz haqida aytib bering..."
+    },
+    "projectTypes": {
+      "web": "Veb-ishlab chiqish",
+      "mobile": "Mobil ilova ishlab chiqish",
+      "ai": "Sun'iy intellekt",
+      "cloud": "Bulutli arxitektura",
+      "design": "UI/UX dizayn",
+      "other": "Boshqa"
+    },
+    "submit": "So'rovni yuborish",
+    "error": "Yuborishda xatolik. Iltimos, qaytadan urinib ko'ring yoki info@theadtech.uz ga yozing."
+  },
+  "OrbitalVisual": {
+    "uptime": {
+      "label": "Uzluksiz ish",
+      "status": "Onlayn"
+    },
+    "projects": {
+      "label": "Topshirilgan loyihalar",
+      "status": "O'smoqda"
+    },
+    "response": {
+      "label": "Javob vaqti",
+      "status": "Tezkor"
+    }
+  },
+  "DashboardMockup": {
+    "site": "app.theadtech.uz/dashboard",
+    "brand": "The AdTech",
+    "tier": "Enterprise",
+    "platform": "Platforma",
+    "menu": {
+      "overview": "Obzor",
+      "analytics": "Analitika",
+      "projects": "Loyihalar",
+      "deployments": "Joylashtirishlar",
+      "integrations": "Integratsiyalar"
+    },
+    "team": "Jamoa",
+    "periods": {
+      "7d": "7 kun",
+      "30d": "30 kun",
+      "90d": "90 kun"
+    },
+    "actions": {
+      "export": "Eksport",
+      "deploy": "+ Joylash"
+    },
+    "metrics": {
+      "revenue": "Daromad",
+      "users": "Foydalanuvchilar",
+      "latency": "Kechikish",
+      "uptime": "Uzluksiz ish"
+    },
+    "activity": {
+      "title": "Joylashtirish faolligi",
+      "deploys": "Deploys",
+      "errors": "Xatolar"
+    }
+  },
+  "Footer": {
+    "description": "Zamonaviy raqamli echimlar orqali biznesni rivojlantiramiz. G'oyadan boshlab, texnologiyalar kelajagini quramiz.",
+    "status": "Yangi g'oyalar uchun ochiqmiz",
+    "sections": {
+      "company": "Kompaniya",
+      "services": "Xizmatlar",
+      "contact": "Aloqa"
+    },
+    "links": {
+      "about": "Biz haqimizda",
+      "portfolio": "Portfolio",
+      "services": "Xizmatlar",
+      "contact": "Aloqa",
+      "web": "Veb-ishlab chiqish",
+      "backend": "Bek-end va API",
+      "mobile": "Mobil ilovalar",
+      "cloud": "Bulut va DevOps"
+    },
+    "rights": "© {year} TheAdTech. Barcha huquqlar himoyalangan.",
+    "privacy": "Maxfiylik",
+    "terms": "Shartlar"
+  },
+  "GetQuotePage": {
+    "backToHome": "Asosiy sahifaga qaytish",
+    "headline": {
+      "part1": "Keling, birgalikda ",
+      "accent": "ajoyib",
+      "part2": " narsa yarataylik."
+    },
+    "description": "Sizda to'liq shakllangan loyiha bo'ladimi yoki shunchaki g'oya urug'i bo'ladimi, biz imkoniyatlar chegarasini kengaytirishga yordam beramiz.",
+    "perks": {
+      "strategy": {
+        "title": "Tezkor strategiya",
+        "desc": "48 soat ichida yuqori darajadagi yo'l xaritasini oling."
+      },
+      "engineering": {
+        "title": "Ekspert muhandislik",
+        "desc": "Sizning arxitekturangizga bag'ishlangan eng yaxshi 1% talantlar."
+      },
+      "collaboration": {
+        "title": "To'g'ridan-to'g'ri hamkorlik",
+        "desc": "Bizning asoschilarimiz va asosiy jamoamiz bilan yaqindan ishlang."
+      }
+    },
+    "formTitle": "Bizga loyiha so'rovini yuboring"
+  }
+}

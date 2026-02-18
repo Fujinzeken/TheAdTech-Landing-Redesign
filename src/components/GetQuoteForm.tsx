@@ -1,34 +1,39 @@
 "use client";
 
 import React, { useState } from "react";
-import { motion } from "framer-motion";
+import { motion, AnimatePresence } from "framer-motion";
 import { Send, ChevronRight, Check } from "lucide-react";
-
-const projectTypes = [
-  "Web Development",
-  "Mobile App Development",
-  "AI & Machine Learning",
-  "Cloud Architecture",
-  "UI/UX Design",
-  "Other",
-];
+import { useTranslations } from "next-intl";
 
 const GetQuoteForm = () => {
+  const t = useTranslations("GetQuoteForm");
+
+  const projectTypes = [
+    { key: "web", label: t("projectTypes.web") },
+    { key: "mobile", label: t("projectTypes.mobile") },
+    { key: "ai", label: t("projectTypes.ai") },
+    { key: "cloud", label: t("projectTypes.cloud") },
+    { key: "design", label: t("projectTypes.design") },
+    { key: "other", label: t("projectTypes.other") },
+  ];
+
   const [formData, setFormData] = useState({
     name: "",
     email: "",
     phone: "",
     company: "",
-    projectType: "Web Development",
+    projectType: "web",
     message: "",
   });
 
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [isSuccess, setIsSuccess] = useState(false);
+  const [error, setError] = useState<string | null>(null);
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setIsSubmitting(true);
+    setError(null);
 
     try {
       const response = await fetch("/api/quote", {
@@ -44,11 +49,9 @@ const GetQuoteForm = () => {
       }
 
       setIsSuccess(true);
-    } catch (error) {
-      console.error("Submission error:", error);
-      alert(
-        "Submission failed. Please try again or contact info@theadtech.uz directly.",
-      );
+    } catch (err) {
+      console.error("Submission error:", err);
+      setError(t("error"));
     } finally {
       setIsSubmitting(false);
     }
@@ -61,6 +64,7 @@ const GetQuoteForm = () => {
   ) => {
     const { name, value } = e.target;
     setFormData((prev) => ({ ...prev, [name]: value }));
+    if (error) setError(null);
   };
 
   if (isSuccess) {
@@ -77,17 +81,14 @@ const GetQuoteForm = () => {
           className="text-2xl font-bold text-white mb-2"
           style={{ fontFamily: "var(--font-syne)" }}
         >
-          Request Received
+          {t("success.title")}
         </h3>
-        <p className="text-white/60 mb-8 max-w-sm">
-          Thank you for reaching out. Our team will review your project details
-          and get back to you within 24 hours.
-        </p>
+        <p className="text-white/60 mb-8 max-w-sm">{t("success.message")}</p>
         <button
           onClick={() => (window.location.href = "/")}
           className="px-6 py-2.5 rounded-full border border-white/10 hover:bg-white/5 text-sm transition-all"
         >
-          Back to Home
+          {t("success.back")}
         </button>
       </motion.div>
     );
@@ -99,7 +100,7 @@ const GetQuoteForm = () => {
         {/* Name */}
         <div className="space-y-2">
           <label className="text-[10px] uppercase tracking-[0.2em] text-white/40 ml-1">
-            Name*
+            {t("labels.name")}
           </label>
           <div className="relative group">
             <input
@@ -108,8 +109,8 @@ const GetQuoteForm = () => {
               name="name"
               value={formData.name}
               onChange={handleChange}
-              placeholder="Your full name"
-              className="w-full px-5 py-3.5 rounded-xl bg-white/[0.03] border border-white/[0.08] text-white placeholder:text-white/10 focus:outline-none focus:border-accent-blue/50 focus:bg-white/[0.05] transition-all duration-300"
+              placeholder={t("placeholders.name")}
+              className="w-full px-5 py-3.5 rounded-xl bg-white/3 border border-white/8 text-white placeholder:text-white/10 focus:outline-none focus:border-accent-blue/50 focus:bg-white/5 transition-all duration-300"
             />
             <div className="absolute inset-0 rounded-xl bg-accent-blue/5 opacity-0 group-focus-within:opacity-100 pointer-events-none transition-opacity duration-300" />
           </div>
@@ -118,7 +119,7 @@ const GetQuoteForm = () => {
         {/* Email */}
         <div className="space-y-2">
           <label className="text-[10px] uppercase tracking-[0.2em] text-white/40 ml-1">
-            Email*
+            {t("labels.email")}
           </label>
           <div className="relative group">
             <input
@@ -127,8 +128,8 @@ const GetQuoteForm = () => {
               name="email"
               value={formData.email}
               onChange={handleChange}
-              placeholder="you@company.com"
-              className="w-full px-5 py-3.5 rounded-xl bg-white/[0.03] border border-white/[0.08] text-white placeholder:text-white/10 focus:outline-none focus:border-accent-blue/50 focus:bg-white/[0.05] transition-all duration-300"
+              placeholder={t("placeholders.email")}
+              className="w-full px-5 py-3.5 rounded-xl bg-white/3 border border-white/8 text-white placeholder:text-white/10 focus:outline-none focus:border-accent-blue/50 focus:bg-white/5 transition-all duration-300"
             />
             <div className="absolute inset-0 rounded-xl bg-accent-blue/5 opacity-0 group-focus-within:opacity-100 pointer-events-none transition-opacity duration-300" />
           </div>
@@ -139,7 +140,7 @@ const GetQuoteForm = () => {
         {/* Phone */}
         <div className="space-y-2">
           <label className="text-[10px] uppercase tracking-[0.2em] text-white/40 ml-1">
-            Phone / WhatsApp / Telegram
+            {t("labels.phone")}
           </label>
           <div className="relative group">
             <input
@@ -147,8 +148,8 @@ const GetQuoteForm = () => {
               name="phone"
               value={formData.phone}
               onChange={handleChange}
-              placeholder="+1 (555) 000-0000"
-              className="w-full px-5 py-3.5 rounded-xl bg-white/[0.03] border border-white/[0.08] text-white placeholder:text-white/10 focus:outline-none focus:border-accent-blue/50 focus:bg-white/[0.05] transition-all duration-300"
+              placeholder={t("placeholders.phone")}
+              className="w-full px-5 py-3.5 rounded-xl bg-white/3 border border-white/8 text-white placeholder:text-white/10 focus:outline-none focus:border-accent-blue/50 focus:bg-white/5 transition-all duration-300"
             />
             <div className="absolute inset-0 rounded-xl bg-accent-blue/5 opacity-0 group-focus-within:opacity-100 pointer-events-none transition-opacity duration-300" />
           </div>
@@ -157,7 +158,7 @@ const GetQuoteForm = () => {
         {/* Company */}
         <div className="space-y-2">
           <label className="text-[10px] uppercase tracking-[0.2em] text-white/40 ml-1">
-            Company / Organization
+            {t("labels.company")}
           </label>
           <div className="relative group">
             <input
@@ -165,8 +166,8 @@ const GetQuoteForm = () => {
               name="company"
               value={formData.company}
               onChange={handleChange}
-              placeholder="Acme Inc."
-              className="w-full px-5 py-3.5 rounded-xl bg-white/[0.03] border border-white/[0.08] text-white placeholder:text-white/10 focus:outline-none focus:border-accent-blue/50 focus:bg-white/[0.05] transition-all duration-300"
+              placeholder={t("placeholders.company")}
+              className="w-full px-5 py-3.5 rounded-xl bg-white/3 border border-white/8 text-white placeholder:text-white/10 focus:outline-none focus:border-accent-blue/50 focus:bg-white/5 transition-all duration-300"
             />
             <div className="absolute inset-0 rounded-xl bg-accent-blue/5 opacity-0 group-focus-within:opacity-100 pointer-events-none transition-opacity duration-300" />
           </div>
@@ -176,22 +177,22 @@ const GetQuoteForm = () => {
       {/* Project Type */}
       <div className="space-y-2">
         <label className="text-[10px] uppercase tracking-[0.2em] text-white/40 ml-1">
-          Project Type*
+          {t("labels.projectType")}
         </label>
         <div className="relative group">
           <select
             name="projectType"
             value={formData.projectType}
             onChange={handleChange}
-            className="w-full px-5 py-3.5 rounded-xl bg-white/[0.03] border border-white/[0.08] text-white focus:outline-none focus:border-accent-blue/50 focus:bg-white/[0.05] transition-all duration-300 appearance-none cursor-pointer"
+            className="w-full px-5 py-3.5 rounded-xl bg-white/3 border border-white/8 text-white focus:outline-none focus:border-accent-blue/50 focus:bg-white/5 transition-all duration-300 appearance-none cursor-pointer"
           >
             {projectTypes.map((type) => (
               <option
-                key={type}
-                value={type}
+                key={type.key}
+                value={type.key}
                 className="bg-[#0a0a1a] text-white"
               >
-                {type}
+                {type.label}
               </option>
             ))}
           </select>
@@ -204,7 +205,7 @@ const GetQuoteForm = () => {
       {/* Message */}
       <div className="space-y-2">
         <label className="text-[10px] uppercase tracking-[0.2em] text-white/40 ml-1">
-          Project Description*
+          {t("labels.description")}
         </label>
         <div className="relative group">
           <textarea
@@ -213,12 +214,26 @@ const GetQuoteForm = () => {
             rows={4}
             value={formData.message}
             onChange={handleChange}
-            placeholder="Tell us about your project, goals, and timeline..."
-            className="w-full px-5 py-4 rounded-xl bg-white/[0.03] border border-white/[0.08] text-white placeholder:text-white/10 focus:outline-none focus:border-accent-blue/50 focus:bg-white/[0.05] transition-all duration-300 resize-none"
+            placeholder={t("placeholders.description")}
+            className="w-full px-5 py-4 rounded-xl bg-white/3 border border-white/8 text-white placeholder:text-white/10 focus:outline-none focus:border-accent-blue/50 focus:bg-white/5 transition-all duration-300 resize-none"
           />
           <div className="absolute inset-0 rounded-xl bg-accent-blue/5 opacity-0 group-focus-within:opacity-100 pointer-events-none transition-opacity duration-300" />
         </div>
       </div>
+
+      {/* Error Message */}
+      <AnimatePresence>
+        {error && (
+          <motion.div
+            initial={{ opacity: 0, height: 0 }}
+            animate={{ opacity: 1, height: "auto" }}
+            exit={{ opacity: 0, height: 0 }}
+            className="text-red-400 text-xs font-medium bg-red-400/10 border border-red-400/20 rounded-lg px-4 py-2 mt-4 overflow-hidden"
+          >
+            {error}
+          </motion.div>
+        )}
+      </AnimatePresence>
 
       {/* Submit */}
       <motion.button
@@ -227,13 +242,18 @@ const GetQuoteForm = () => {
         disabled={isSubmitting}
         className="w-full relative group mt-4 overflow-hidden"
       >
-        <div className="absolute inset-0 bg-gradient-to-r from-accent-blue to-accent-violet opacity-80 group-hover:opacity-100 transition-opacity" />
+        <div
+          className="absolute inset-0 opacity-80 group-hover:opacity-100 transition-opacity"
+          style={{
+            background: "linear-gradient(90deg, #3b82f6 0%, #7c3aed 100%)",
+          }}
+        />
         <div className="relative flex items-center justify-center gap-2 py-4 px-6 text-white font-semibold tracking-wide">
           {isSubmitting ? (
             <div className="w-5 h-5 border-2 border-white/30 border-t-white rounded-full animate-spin" />
           ) : (
             <>
-              Submit Request
+              {t("submit")}
               <Send className="w-4 h-4 group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform" />
             </>
           )}

@@ -3,6 +3,7 @@
 import React from "react";
 import { motion } from "framer-motion";
 import Image from "next/image";
+import { useTranslations } from "next-intl";
 
 const clientLogos = [
   { name: "Akhmad Tea", path: "/images/logos/akhmad-tea.png" },
@@ -14,6 +15,8 @@ const clientLogos = [
 ];
 
 const Clients = () => {
+  const t = useTranslations("Clients");
+
   return (
     <section id="portfolio" className="relative py-20 overflow-hidden">
       <div className="max-w-7xl mx-auto px-6 md:px-10">
@@ -22,9 +25,9 @@ const Clients = () => {
           whileInView={{ opacity: 1 }}
           viewport={{ once: true }}
           transition={{ duration: 0.7 }}
-          className="text-center text-[10px] uppercase tracking-[0.25em] text-white/15 mb-10"
+          className="text-center text-[10px] uppercase tracking-[0.25em] text-white/60 mb-10"
         >
-          Trusted by forward-thinking companies
+          {t("label")}
         </motion.p>
       </div>
 

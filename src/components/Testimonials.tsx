@@ -3,35 +3,29 @@
 import React from "react";
 import { motion } from "framer-motion";
 import Image from "next/image";
-
-const testimonials = [
-  {
-    quote:
-      "Outstanding dedication to excellence, exceptional support received. Impressive service!",
-    author: "Ernest Smith",
-    role: "Developer at Unixity",
-    image: "/images/earnest.png",
-    rating: 5,
-  },
-  {
-    quote:
-      "Expertise made all the difference, absolute pleasure to work with. Exceeded our expectations.",
-    author: "Stella Smith",
-    role: "Engineer at Unify",
-    image: "/images/stella.png",
-    rating: 5,
-  },
-  {
-    quote:
-      "I highly recommend this agency. Testing for our project was done everything top-notch",
-    author: "Thomas Smith",
-    role: "Designer at Converta",
-    image: "/images/thomas.png",
-    rating: 5,
-  },
-];
+import { useTranslations } from "next-intl";
 
 const Testimonials = () => {
+  const t = useTranslations("Testimonials");
+
+  const testimonials = [
+    {
+      key: "ernest",
+      image: "/images/earnest.png",
+      rating: 5,
+    },
+    {
+      key: "stella",
+      image: "/images/stella.png",
+      rating: 5,
+    },
+    {
+      key: "thomas",
+      image: "/images/thomas.png",
+      rating: 5,
+    },
+  ];
+
   return (
     <section className="relative py-28 md:py-36 overflow-hidden">
       {/* Background accent */}
@@ -47,21 +41,21 @@ const Testimonials = () => {
           className="mb-16 md:mb-20 text-center"
         >
           <span className="text-[11px] uppercase tracking-[0.25em] text-accent-blue/60 font-medium mb-4 block">
-            Testimonials
+            {t("label")}
           </span>
           <h2
             className="text-[clamp(2rem,4vw,3.2rem)] font-bold leading-[1.1] tracking-[-0.02em] text-gradient-subtle"
             style={{ fontFamily: "var(--font-syne)" }}
           >
-            What our customers are saying
+            {t("headline")}
           </h2>
         </motion.div>
 
         {/* Cards */}
         <div className="grid grid-cols-1 md:grid-cols-3 gap-5">
-          {testimonials.map((t, i) => (
+          {testimonials.map((item, i) => (
             <motion.div
-              key={t.author}
+              key={item.key}
               initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, margin: "-50px" }}
@@ -72,7 +66,7 @@ const Testimonials = () => {
               }}
               className="group relative"
             >
-              <div className="h-full p-7 md:p-8 rounded-2xl border border-white/[0.05] bg-white/[0.02] hover:bg-white/[0.04] hover:border-white/[0.1] transition-all duration-500">
+              <div className="h-full p-7 md:p-8 rounded-2xl border border-white/5 bg-white/2 hover:bg-white/4 hover:border-white/10 transition-all duration-500">
                 {/* Quote mark */}
                 <div
                   className="text-4xl text-accent-violet/20 mb-4 leading-none"
@@ -83,7 +77,7 @@ const Testimonials = () => {
 
                 {/* Stars */}
                 <div className="flex gap-0.5 mb-4">
-                  {Array.from({ length: t.rating }).map((_, j) => (
+                  {Array.from({ length: item.rating }).map((_, j) => (
                     <svg
                       key={j}
                       viewBox="0 0 20 20"
@@ -96,10 +90,10 @@ const Testimonials = () => {
 
                 {/* Quote */}
                 <p
-                  className="text-sm text-white/45 leading-relaxed mb-6 italic"
+                  className="text-sm text-white/70 leading-relaxed mb-6 italic"
                   style={{ fontFamily: "var(--font-syne)" }}
                 >
-                  {t.quote}
+                  {t(`items.${item.key}.quote`)}
                 </p>
 
                 {/* Author */}
@@ -107,8 +101,8 @@ const Testimonials = () => {
                   {/* Avatar Image */}
                   <div className="relative w-10 h-10 rounded-full overflow-hidden border border-white/10">
                     <Image
-                      src={t.image}
-                      alt={t.author}
+                      src={item.image}
+                      alt={t(`items.${item.key}.author`)}
                       fill
                       className="object-cover"
                     />
@@ -118,9 +112,11 @@ const Testimonials = () => {
                       className="text-sm font-semibold text-white/80"
                       style={{ fontFamily: "var(--font-space)" }}
                     >
-                      {t.author}
+                      {t(`items.${item.key}.author`)}
                     </div>
-                    <div className="text-[11px] text-white/25">{t.role}</div>
+                    <div className="text-[11px] text-white/50">
+                      {t(`items.${item.key}.role`)}
+                    </div>
                   </div>
                 </div>
               </div>
