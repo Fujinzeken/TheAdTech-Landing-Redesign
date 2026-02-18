@@ -9,12 +9,12 @@ const GetQuoteForm = () => {
   const t = useTranslations("GetQuoteForm");
 
   const projectTypes = [
-    { key: "web", label: t("projectTypes.web") },
-    { key: "mobile", label: t("projectTypes.mobile") },
-    { key: "ai", label: t("projectTypes.ai") },
-    { key: "cloud", label: t("projectTypes.cloud") },
-    { key: "design", label: t("projectTypes.design") },
-    { key: "other", label: t("projectTypes.other") },
+    { value: "Web Development", label: t("projectTypes.web") },
+    { value: "Mobile App Development", label: t("projectTypes.mobile") },
+    { value: "AI & Machine Learning", label: t("projectTypes.ai") },
+    { value: "Cloud Architecture", label: t("projectTypes.cloud") },
+    { value: "UI/UX Design", label: t("projectTypes.design") },
+    { value: "Other", label: t("projectTypes.other") },
   ];
 
   const [formData, setFormData] = useState({
@@ -22,7 +22,7 @@ const GetQuoteForm = () => {
     email: "",
     phone: "",
     company: "",
-    projectType: "web",
+    projectType: "Web Development",
     message: "",
   });
 
@@ -188,8 +188,8 @@ const GetQuoteForm = () => {
           >
             {projectTypes.map((type) => (
               <option
-                key={type.key}
-                value={type.key}
+                key={type.value}
+                value={type.value}
                 className="bg-[#0a0a1a] text-white"
               >
                 {type.label}

@@ -1,47 +1,58 @@
-In your Google Sheet, go to Extensions > Apps Script.
-Delete any code there and paste this:
+In your Google Sheet, go to Extensions > Apps Script and paste this code:
 
+```javascript
 function doPost(e) {
-var sheet = SpreadsheetApp.getActiveSpreadsheet().getSheetByName("AdTech Quotes");
-var data = JSON.parse(e.postData.contents);
+  try {
+    var ss = SpreadsheetApp.getActiveSpreadsheet();
+    var sheet = ss.getSheetByName("AdTech Quotes");
 
-sheet.appendRow([
-new Date(),
-data.name,
-data.email,
-data.phone,
-data.company,
-data.projectType,
-data.message
-]);
+    if (!sheet) {
+      throw new Error("Could not find sheet named 'AdTech Quotes'");
+    }
 
-// Only turn on wrapping and top-alignment for the new row
-// This won't change your column widths!
-var lastRow = sheet.getLastRow();
-var range = sheet.getRange(lastRow, 1, 1, 7);
+    var data = JSON.parse(e.postData.contents);
 
-range.setWrap(true);
-range.setVerticalAlignment("top");
+    sheet.appendRow([
+      new Date(),
+      data.name,
+      data.email,
+      data.phone,
+      data.company,
+      data.projectType,
+      data.message,
+    ]);
 
-return ContentService.createTextOutput(JSON.stringify({"result": "success"}))
-.setMimeType(ContentService.MimeType.JSON);
+    return ContentService.createTextOutput(
+      JSON.stringify({ result: "success" }),
+    ).setMimeType(ContentService.MimeType.JSON);
+  } catch (error) {
+    return ContentService.createTextOutput(
+      JSON.stringify({
+        result: "error",
+        message: error.toString(),
+      }),
+    ).setMimeType(ContentService.MimeType.JSON);
+  }
 }
+```
 
-Click Deploy (top right) > New Deployment.
-Select Type: Web App.
-Description: Form API.
-Execute as: Me.
-Who has access: Anyone (this is important for the API to work).
-Click Deploy, authorize permissions, and copy the "Web App URL".
+### ⚠️ How to update the script (2 ways)
 
-Don't worry about that warning! It's Google's way of saying: "This script hasn't been audited by us." Since you wrote it (using my code) on your account, it's 100% safe.
+**Option A: Keep the same URL (Recommended)**
 
-To bypass it:
+1. Click **Deploy** > **Manage Deployments**.
+2. Click the **Pencil icon** (Edit).
+3. Under the "Version" dropdown, select **"New Version"**.
+4. Click **Deploy**. (This is the only way to push new code to an existing URL).
 
-Click "Advanced" on that warning screen.
-Click "Go to [Your App Name] (unsafe)" at the bottom.
-Click Allow.
-Once you have that Web App URL, here is what to do:
+**Option B: Get a fresh URL**
 
-Create a file named .env.local in the root of the project (if it's not there).
-Add this line: GOOGLE_SHEETS_WEBAPP_URL=YOUR_COPIED_URL_HERE
+1. Click **Deploy** > **New Deployment**.
+2. Select Type: **Web App**.
+3. **Execute as**: Me.
+4. **Who has access**: Anyone.
+5. Click **Deploy** and copy the NEW URL.
+
+### Final Step
+
+Update `GOOGLE_SHEETS_WEBAPP_URL` in your `.env.local` and **restart your dev server**.
