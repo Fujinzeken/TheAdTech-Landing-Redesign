@@ -30,15 +30,48 @@ const syne = Syne({
   weight: ["400", "500", "600", "700", "800"],
 });
 
-export const metadata: Metadata = {
-  title:
-    "The AdTech — Custom Software Development from Uzbekistan's Expert Team",
-  description:
-    "We build software that redefines what's possible. Expert-led web, mobile, cloud, and backend development from Uzbekistan's top engineering team.",
-  icons: {
-    icon: "/favicon.svg",
-  },
-};
+export async function generateMetadata({
+  params,
+}: {
+  params: Promise<{ locale: string }>;
+}): Promise<Metadata> {
+  const { locale } = await params;
+  const t = await getTranslations({ locale, namespace: "Metadata" });
+
+  const title = t("title");
+  const description = t("description");
+  const ogImage = "/images/og-image.png";
+
+  return {
+    title,
+    description,
+    icons: {
+      icon: "/favicon.svg",
+    },
+    openGraph: {
+      title,
+      description,
+      url: `https://theadtech.uz/${locale}`,
+      siteName: "The AdTech",
+      locale,
+      type: "website",
+      images: [
+        {
+          url: ogImage,
+          width: 1200,
+          height: 630,
+          alt: title,
+        },
+      ],
+    },
+    twitter: {
+      card: "summary_large_image",
+      title,
+      description,
+      images: [ogImage],
+    },
+  };
+}
 
 export function generateStaticParams() {
   return routing.locales.map((locale) => ({ locale }));
