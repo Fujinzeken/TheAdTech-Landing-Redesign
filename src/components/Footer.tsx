@@ -1,7 +1,7 @@
 "use client";
 
 import React from "react";
-import Link from "next/link";
+import { Link } from "@/i18n/navigation";
 import { Mail, Phone, MapPin, Linkedin, Instagram, Send } from "lucide-react";
 import Image from "next/image";
 import { useTranslations } from "next-intl";
