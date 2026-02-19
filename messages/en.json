@@ -118,9 +118,9 @@
         "title": "Mobile Apps",
         "description": "Native and cross-platform mobile experiences for iOS and Android with smooth animations and offline-first architecture."
       },
-      "qa": {
-        "title": "QA & Testing",
-        "description": "Automated test suites, regression testing, security audits, and CI-integrated quality assurance pipelines."
+      "ai_agents": {
+        "title": "AI Agents / LLM",
+        "description": "Intelligent AI agents trained on your data. Automate sales, support, and business processes with integration into CRM and ERP."
       },
       "integrations": {
         "title": "Integrations",

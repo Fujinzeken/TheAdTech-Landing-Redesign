@@ -118,9 +118,9 @@
         "title": "Mobil ilovalar",
         "description": "iOS va Android uchun silliq animatsiyali nativ va kross-platforma ilovalar."
       },
-      "qa": {
-        "title": "QA va Sinov",
-        "description": "Avtomatlashtirilgan testlar, xavfsizlik auditi va sifatni nazorat qilish tizimlari."
+      "ai_agents": {
+        "title": "AI Agentlar / LLM",
+        "description": "Sizning ma'lumotlaringiz asosida o'qitilgan aqlli AI agentlari. CRM va ERP tizimlari bilan integratsiya orqali savdo va foydalanuvchi jarayonlarini avtomatlashtirish."
       },
       "integrations": {
         "title": "Integratsiyalar",

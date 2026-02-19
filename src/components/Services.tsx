@@ -88,8 +88,8 @@ const Services = () => {
       borderGlow: "rgba(124, 58, 237, 0.25)",
     },
     {
-      key: "qa",
-      skills: ["Selenium", "Jest", "Cypress", "Postman"],
+      key: "ai_agents",
+      skills: ["LLMs", "RAG", "Vector DB", "LangChain", "Spring Boot"],
       icon: (
         <svg
           viewBox="0 0 24 24"
@@ -98,8 +98,12 @@ const Services = () => {
           stroke="currentColor"
           strokeWidth="1.5"
         >
-          <path d="M9 12l2 2 4-4" />
-          <path d="M12 2a10 10 0 100 20 10 10 0 000-20z" />
+          <path d="M12 2a3 3 0 0 0-3 3v7h6V5a3 3 0 0 0-3-3Z" />
+          <path d="M18 10v2a4 4 0 0 1-4 4h-4a4 4 0 0 1-4-4v-2" />
+          <path d="M12 16v4" />
+          <path d="M8 20h8" />
+          <path d="M15 6h2a2 2 0 0 1 2 2v2" />
+          <path d="M9 6H7a2 2 0 0 0-2 2v2" />
         </svg>
       ),
       featured: false,
