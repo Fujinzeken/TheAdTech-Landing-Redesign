@@ -179,11 +179,11 @@ const OrbitalVisual = () => {
           className={`floating-card absolute ${card.position} px-3.5 py-2.5 z-20`}
           style={{ animationDelay: card.animDelay }}
         >
-          <div className="text-[9px] text-white/40 uppercase tracking-wider mb-0.5">
+          <div className="text-[9px] text-foreground/40 uppercase tracking-wider mb-0.5">
             {t(`${card.key}.label`)}
           </div>
           <div
-            className="text-sm font-semibold text-white/90"
+            className="text-sm font-semibold text-foreground/90"
             style={{ fontFamily: "var(--font-space)" }}
           >
             {card.initialValue}

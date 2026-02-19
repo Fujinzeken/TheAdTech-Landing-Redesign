@@ -79,16 +79,16 @@ const DashboardMockup = () => {
       <div className="mockup-glow" />
 
       {/* Main window */}
-      <div className="relative rounded-xl border border-white/[0.08] bg-[#0a0a10]/90 shadow-[0_40px_100px_-20px_rgba(0,0,0,0.8)] overflow-hidden backdrop-blur-sm">
+      <div className="relative rounded-xl border border-border bg-surface/90 shadow-[0_40px_100px_-20px_rgba(0,0,0,0.4)] dark:shadow-[0_40px_100px_-20px_rgba(0,0,0,0.8)] overflow-hidden backdrop-blur-sm">
         {/* Window chrome */}
-        <div className="flex items-center px-4 py-2.5 border-b border-white/[0.05] bg-white/[0.02]">
+        <div className="flex items-center px-4 py-2.5 border-b border-foreground/[0.05] bg-foreground/[0.02]">
           <div className="flex gap-[6px]">
             <div className="w-[10px] h-[10px] rounded-full bg-[#ff5f57]/80" />
             <div className="w-[10px] h-[10px] rounded-full bg-[#ffbd2e]/80" />
             <div className="w-[10px] h-[10px] rounded-full bg-[#28c840]/80" />
           </div>
           <div className="flex-1 flex justify-center">
-            <div className="flex items-center gap-1.5 px-8 py-1 rounded-md bg-white/[0.04] text-[10px] text-white/20 font-mono">
+            <div className="flex items-center gap-1.5 px-8 py-1 rounded-md bg-foreground/[0.04] text-[10px] text-foreground/20 font-mono">
               <svg
                 width="10"
                 height="10"
@@ -109,16 +109,16 @@ const DashboardMockup = () => {
         {/* Dashboard body */}
         <div className="flex">
           {/* Sidebar */}
-          <div className="hidden md:flex flex-col w-[200px] border-r border-white/[0.04] p-3 bg-white/[0.01]">
+          <div className="hidden md:flex flex-col w-[200px] border-r border-foreground/[0.04] p-3 bg-foreground/[0.01]">
             <div className="flex items-center gap-2.5 px-2 py-2.5 mb-4">
               <div className="w-7 h-7 rounded-lg bg-linear-to-br from-accent-cyan/80 to-accent-blue/80 flex items-center justify-center">
                 <span className="text-[10px] font-bold text-white">A</span>
               </div>
               <div>
-                <div className="text-[11px] font-semibold text-white/80">
+                <div className="text-[11px] font-semibold text-foreground/80">
                   {t("brand")}
                 </div>
-                <div className="text-[9px] text-white/20">{t("tier")}</div>
+                <div className="text-[9px] text-foreground/20">{t("tier")}</div>
               </div>
             </div>
 
@@ -130,8 +130,8 @@ const DashboardMockup = () => {
                 key={item.key}
                 className={`flex items-center gap-2 px-2.5 py-[7px] rounded-lg text-[11px] mb-0.5 ${
                   item.active
-                    ? "bg-white/[0.06] text-white/90 font-medium"
-                    : "text-white/25 hover:text-white/40"
+                    ? "bg-foreground/10 text-foreground/90 font-medium"
+                    : "text-foreground/25 hover:text-foreground/40"
                 }`}
               >
                 <span className="text-[10px] opacity-60">{item.icon}</span>
@@ -139,19 +139,19 @@ const DashboardMockup = () => {
               </div>
             ))}
 
-            <div className="mt-auto pt-4 border-t border-white/[0.04]">
-              <div className="text-[9px] font-medium text-white/15 uppercase tracking-wider px-2 mb-2">
+            <div className="mt-auto pt-4 border-t border-foreground/[0.04]">
+              <div className="text-[9px] font-medium text-foreground/15 uppercase tracking-wider px-2 mb-2">
                 {t("team")}
               </div>
               <div className="flex -space-x-1.5 px-2">
                 {["#3b82f6", "#7c3aed", "#00d4ff", "#ef4444"].map((c, i) => (
                   <div
                     key={i}
-                    className="w-5 h-5 rounded-full border-2 border-[#0a0a10]"
+                    className="w-5 h-5 rounded-full border-2 border-surface"
                     style={{ background: c }}
                   />
                 ))}
-                <div className="w-5 h-5 rounded-full border-2 border-[#0a0a10] bg-white/10 flex items-center justify-center text-[7px] text-white/40">
+                <div className="w-5 h-5 rounded-full border-2 border-surface bg-foreground/10 flex items-center justify-center text-[7px] text-foreground/40">
                   +3
                 </div>
               </div>
@@ -163,7 +163,7 @@ const DashboardMockup = () => {
             {/* Top bar */}
             <div className="flex items-center justify-between mb-5">
               <div className="flex items-center gap-3">
-                <h3 className="text-[13px] font-semibold text-white/90">
+                <h3 className="text-[13px] font-semibold text-foreground/90">
                   {t("menu.overview")}
                 </h3>
                 <div className="flex gap-1">
@@ -174,7 +174,7 @@ const DashboardMockup = () => {
                   ].map((p, i) => (
                     <span
                       key={p.key}
-                      className={`px-2 py-0.5 rounded text-[9px] ${i === 1 ? "bg-white/[0.06] text-white/70" : "text-white/20"}`}
+                      className={`px-2 py-0.5 rounded text-[9px] ${i === 1 ? "bg-foreground/[0.06] text-foreground/70" : "text-foreground/20"}`}
                     >
                       {p.label}
                     </span>
@@ -182,7 +182,7 @@ const DashboardMockup = () => {
                 </div>
               </div>
               <div className="flex gap-2">
-                <div className="px-2.5 py-1 rounded-md bg-white/[0.04] text-[10px] text-white/30">
+                <div className="px-2.5 py-1 rounded-md bg-foreground/[0.04] text-[10px] text-foreground/30">
                   {t("actions.export")}
                 </div>
                 <div className="px-2.5 py-1 rounded-md bg-accent-blue/20 text-[10px] text-accent-cyan/90 font-medium">
@@ -200,14 +200,14 @@ const DashboardMockup = () => {
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true }}
                   transition={{ delay: 1.2 + i * 0.08, duration: 0.5 }}
-                  className="p-3 rounded-lg bg-white/[0.02] border border-white/[0.04]"
+                  className="p-3 rounded-lg bg-foreground/[0.02] border border-foreground/[0.04]"
                 >
-                  <div className="text-[9px] text-white/25 uppercase tracking-wider mb-1">
+                  <div className="text-[9px] text-foreground/25 uppercase tracking-wider mb-1">
                     {m.label}
                   </div>
                   <div className="flex items-end gap-1.5">
                     <span
-                      className="text-base font-semibold text-white/85"
+                      className="text-base font-semibold text-foreground/85"
                       style={{ fontFamily: "var(--font-space)" }}
                     >
                       {m.value}
@@ -223,12 +223,12 @@ const DashboardMockup = () => {
             </div>
 
             {/* Chart */}
-            <div className="p-4 rounded-lg bg-white/[0.02] border border-white/[0.04]">
+            <div className="p-4 rounded-lg bg-foreground/[0.02] border border-foreground/[0.04]">
               <div className="flex justify-between items-center mb-3">
-                <span className="text-[11px] font-medium text-white/50">
+                <span className="text-[11px] font-medium text-foreground/50">
                   {t("activity.title")}
                 </span>
-                <div className="flex items-center gap-4 text-[9px] text-white/20">
+                <div className="flex items-center gap-4 text-[9px] text-foreground/20">
                   <span className="flex items-center gap-1">
                     <span className="w-2 h-px bg-accent-cyan"></span>{" "}
                     {t("activity.deploys")}

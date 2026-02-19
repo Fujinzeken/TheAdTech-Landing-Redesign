@@ -153,7 +153,7 @@ const Services = () => {
           >
             {t("headline")}
           </h2>
-          <p className="mt-4 text-white/60 max-w-lg text-base leading-relaxed">
+          <p className="mt-4 text-foreground/60 max-w-lg text-base leading-relaxed">
             {t("description")}
           </p>
         </motion.div>
@@ -177,9 +177,9 @@ const Services = () => {
             >
               {/* Card */}
               <div
-                className="relative h-full p-6 md:p-7 rounded-2xl border border-white/5 bg-white/2 hover:bg-white/4 transition-all duration-500 cursor-default"
+                className="relative h-full p-6 md:p-7 rounded-2xl border border-foreground/5 bg-foreground/2 hover:bg-foreground/4 transition-all duration-500 cursor-default"
                 style={{
-                  boxShadow: `inset 0 1px 0 0 rgba(255,255,255,0.03)`,
+                  boxShadow: `inset 0 1px 0 0 var(--glass-border)`,
                 }}
               >
                 {/* Hover glow */}
@@ -198,24 +198,24 @@ const Services = () => {
                 {/* Content */}
                 <div className="relative z-10">
                   {/* Icon */}
-                  <div className="w-10 h-10 rounded-xl bg-white/4 border border-white/6 flex items-center justify-center text-white/40 group-hover:text-white/80 group-hover:border-white/12 transition-all duration-500 mb-5">
+                  <div className="w-10 h-10 rounded-xl bg-foreground/4 border border-foreground/6 flex items-center justify-center text-foreground/40 group-hover:text-foreground/80 group-hover:border-foreground/12 transition-all duration-500 mb-5">
                     {service.icon}
                   </div>
 
                   {/* Title */}
                   <h3
-                    className="text-lg font-semibold text-white/90 mb-2.5 flex items-center gap-2"
+                    className="text-lg font-semibold text-foreground/90 mb-2.5 flex items-center gap-2"
                     style={{ fontFamily: "var(--font-space)" }}
                   >
                     {t(`items.${service.key}.title`)}
                     <ArrowUpRight
                       size={14}
-                      className="text-white/0 group-hover:text-white/40 transition-all duration-300 -translate-x-1 group-hover:translate-x-0"
+                      className="text-foreground/0 group-hover:text-foreground/40 transition-all duration-300 -translate-x-1 group-hover:translate-x-0"
                     />
                   </h3>
 
                   {/* Description */}
-                  <p className="text-sm text-white/60 leading-relaxed mb-5">
+                  <p className="text-sm text-foreground/60 leading-relaxed mb-5">
                     {t(`items.${service.key}.description`)}
                   </p>
 
@@ -224,7 +224,7 @@ const Services = () => {
                     {service.skills.map((skill) => (
                       <span
                         key={skill}
-                        className="px-2.5 py-1 rounded-md text-[10px] font-medium bg-white/4 text-white/50 group-hover:text-white group-hover:bg-white/6 border border-white/4 transition-all duration-300"
+                        className="px-2.5 py-1 rounded-md text-[10px] font-medium bg-foreground/4 text-foreground/50 group-hover:text-foreground group-hover:bg-foreground/6 border border-foreground/4 transition-all duration-300"
                       >
                         {skill}
                       </span>

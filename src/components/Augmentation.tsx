@@ -71,7 +71,7 @@ const Augmentation = () => {
               <br />
               {t("headline.line2")}
             </h2>
-            <p className="text-white/60 text-base leading-relaxed max-w-md mb-8">
+            <p className="text-foreground/60 text-base leading-relaxed max-w-md mb-8">
               {t("description")}
             </p>
             <a
@@ -102,15 +102,15 @@ const Augmentation = () => {
                   delay: i * 0.1,
                   ease: [0.22, 1, 0.36, 1],
                 }}
-                className="group p-5 md:p-6 rounded-2xl border border-white/5 bg-white/2 hover:bg-white/4 hover:border-white/10 transition-all duration-500"
+                className="group p-5 md:p-6 rounded-2xl border border-foreground/5 bg-foreground/2 hover:bg-foreground/4 hover:border-foreground/10 transition-all duration-500"
               >
                 <div
-                  className="text-3xl md:text-4xl font-bold text-white/90 mb-1"
+                  className="text-3xl md:text-4xl font-bold text-foreground/90 mb-1"
                   style={{ fontFamily: "var(--font-space)" }}
                 >
                   <AnimatedCounter value={stat.value} suffix={stat.suffix} />
                 </div>
-                <div className="text-[11px] text-white/50 uppercase tracking-wider">
+                <div className="text-[11px] text-foreground/50 uppercase tracking-wider">
                   {stat.label}
                 </div>
               </motion.div>

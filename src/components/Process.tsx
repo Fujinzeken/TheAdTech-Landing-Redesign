@@ -53,7 +53,7 @@ const Process = () => {
         {/* Timeline grid */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 relative">
           {/* Connecting line (desktop only) */}
-          <div className="absolute top-[60px] left-[calc(12.5%+12px)] right-[calc(12.5%+12px)] h-px bg-linear-to-r from-transparent via-white/6 to-transparent hidden lg:block" />
+          <div className="absolute top-[60px] left-[calc(12.5%+12px)] right-[calc(12.5%+12px)] h-px bg-linear-to-r from-transparent via-foreground/10 to-transparent hidden lg:block" />
 
           {steps.map((step, i) => (
             <motion.div
@@ -69,14 +69,14 @@ const Process = () => {
               className="relative"
             >
               {/* Step card */}
-              <div className="p-6 rounded-2xl border border-white/5 bg-white/2 hover:bg-white/4 hover:border-white/10 transition-all duration-500 group h-full">
+              <div className="p-6 rounded-2xl border border-foreground/5 bg-foreground/2 hover:bg-foreground/4 hover:border-foreground/10 transition-all duration-500 group h-full">
                 {/* Number circle */}
                 <div className="relative mb-6">
                   <div
-                    className="w-12 h-12 rounded-full flex items-center justify-center text-sm font-bold border border-white/8 group-hover:border-accent-blue/30 transition-all duration-500"
+                    className="w-12 h-12 rounded-full flex items-center justify-center text-sm font-bold border border-foreground/10 group-hover:border-accent-blue/30 transition-all duration-500"
                     style={{ fontFamily: "var(--font-space)" }}
                   >
-                    <span className="text-white/40 group-hover:text-white/80 transition-colors duration-500">
+                    <span className="text-foreground/40 group-hover:text-foreground/80 transition-colors duration-500">
                       {step.number}
                     </span>
                   </div>
@@ -86,14 +86,14 @@ const Process = () => {
 
                 {/* Title */}
                 <h3
-                  className="text-lg font-semibold text-white/85 mb-3"
+                  className="text-lg font-semibold text-foreground/90 mb-3"
                   style={{ fontFamily: "var(--font-space)" }}
                 >
                   {t(`steps.${step.key}.title`)}
                 </h3>
 
                 {/* Description */}
-                <p className="text-sm text-white/60 leading-relaxed">
+                <p className="text-sm text-foreground/60 leading-relaxed">
                   {t(`steps.${step.key}.description`)}
                 </p>
               </div>

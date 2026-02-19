@@ -78,15 +78,17 @@ const GetQuoteForm = () => {
           <Check className="w-8 h-8 text-accent-blue" />
         </div>
         <h3
-          className="text-2xl font-bold text-white mb-2"
+          className="text-2xl font-bold text-foreground mb-2"
           style={{ fontFamily: "var(--font-syne)" }}
         >
           {t("success.title")}
         </h3>
-        <p className="text-white/60 mb-8 max-w-sm">{t("success.message")}</p>
+        <p className="text-foreground/60 mb-8 max-w-sm">
+          {t("success.message")}
+        </p>
         <button
           onClick={() => (window.location.href = "/")}
-          className="px-6 py-2.5 rounded-full border border-white/10 hover:bg-white/5 text-sm transition-all"
+          className="px-6 py-2.5 rounded-full border border-foreground/10 hover:bg-foreground/5 text-sm transition-all"
         >
           {t("success.back")}
         </button>
@@ -99,7 +101,7 @@ const GetQuoteForm = () => {
       <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
         {/* Name */}
         <div className="space-y-2">
-          <label className="text-[10px] uppercase tracking-[0.2em] text-white/40 ml-1">
+          <label className="text-[10px] uppercase tracking-[0.2em] text-foreground/40 ml-1">
             {t("labels.name")}
           </label>
           <div className="relative group">
@@ -110,7 +112,7 @@ const GetQuoteForm = () => {
               value={formData.name}
               onChange={handleChange}
               placeholder={t("placeholders.name")}
-              className="w-full px-5 py-3.5 rounded-xl bg-white/3 border border-white/8 text-white placeholder:text-white/10 focus:outline-none focus:border-accent-blue/50 focus:bg-white/5 transition-all duration-300"
+              className="w-full px-5 py-3.5 rounded-xl bg-foreground/3 border border-foreground/8 text-foreground placeholder:text-foreground/20 focus:outline-none focus:border-accent-blue/50 focus:bg-foreground/5 transition-all duration-300"
             />
             <div className="absolute inset-0 rounded-xl bg-accent-blue/5 opacity-0 group-focus-within:opacity-100 pointer-events-none transition-opacity duration-300" />
           </div>
@@ -118,7 +120,7 @@ const GetQuoteForm = () => {
 
         {/* Email */}
         <div className="space-y-2">
-          <label className="text-[10px] uppercase tracking-[0.2em] text-white/40 ml-1">
+          <label className="text-[10px] uppercase tracking-[0.2em] text-foreground/40 ml-1">
             {t("labels.email")}
           </label>
           <div className="relative group">
@@ -129,7 +131,7 @@ const GetQuoteForm = () => {
               value={formData.email}
               onChange={handleChange}
               placeholder={t("placeholders.email")}
-              className="w-full px-5 py-3.5 rounded-xl bg-white/3 border border-white/8 text-white placeholder:text-white/10 focus:outline-none focus:border-accent-blue/50 focus:bg-white/5 transition-all duration-300"
+              className="w-full px-5 py-3.5 rounded-xl bg-foreground/3 border border-foreground/8 text-foreground placeholder:text-foreground/20 focus:outline-none focus:border-accent-blue/50 focus:bg-foreground/5 transition-all duration-300"
             />
             <div className="absolute inset-0 rounded-xl bg-accent-blue/5 opacity-0 group-focus-within:opacity-100 pointer-events-none transition-opacity duration-300" />
           </div>
@@ -139,7 +141,7 @@ const GetQuoteForm = () => {
       <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
         {/* Phone */}
         <div className="space-y-2">
-          <label className="text-[10px] uppercase tracking-[0.2em] text-white/40 ml-1">
+          <label className="text-[10px] uppercase tracking-[0.2em] text-foreground/40 ml-1">
             {t("labels.phone")}
           </label>
           <div className="relative group">
@@ -149,7 +151,7 @@ const GetQuoteForm = () => {
               value={formData.phone}
               onChange={handleChange}
               placeholder={t("placeholders.phone")}
-              className="w-full px-5 py-3.5 rounded-xl bg-white/3 border border-white/8 text-white placeholder:text-white/10 focus:outline-none focus:border-accent-blue/50 focus:bg-white/5 transition-all duration-300"
+              className="w-full px-5 py-3.5 rounded-xl bg-foreground/3 border border-foreground/8 text-foreground placeholder:text-foreground/20 focus:outline-none focus:border-accent-blue/50 focus:bg-foreground/5 transition-all duration-300"
             />
             <div className="absolute inset-0 rounded-xl bg-accent-blue/5 opacity-0 group-focus-within:opacity-100 pointer-events-none transition-opacity duration-300" />
           </div>
@@ -157,7 +159,7 @@ const GetQuoteForm = () => {
 
         {/* Company */}
         <div className="space-y-2">
-          <label className="text-[10px] uppercase tracking-[0.2em] text-white/40 ml-1">
+          <label className="text-[10px] uppercase tracking-[0.2em] text-foreground/40 ml-1">
             {t("labels.company")}
           </label>
           <div className="relative group">
@@ -167,7 +169,7 @@ const GetQuoteForm = () => {
               value={formData.company}
               onChange={handleChange}
               placeholder={t("placeholders.company")}
-              className="w-full px-5 py-3.5 rounded-xl bg-white/3 border border-white/8 text-white placeholder:text-white/10 focus:outline-none focus:border-accent-blue/50 focus:bg-white/5 transition-all duration-300"
+              className="w-full px-5 py-3.5 rounded-xl bg-foreground/3 border border-foreground/8 text-foreground placeholder:text-foreground/20 focus:outline-none focus:border-accent-blue/50 focus:bg-foreground/5 transition-all duration-300"
             />
             <div className="absolute inset-0 rounded-xl bg-accent-blue/5 opacity-0 group-focus-within:opacity-100 pointer-events-none transition-opacity duration-300" />
           </div>
@@ -176,7 +178,7 @@ const GetQuoteForm = () => {
 
       {/* Project Type */}
       <div className="space-y-2">
-        <label className="text-[10px] uppercase tracking-[0.2em] text-white/40 ml-1">
+        <label className="text-[10px] uppercase tracking-[0.2em] text-foreground/40 ml-1">
           {t("labels.projectType")}
         </label>
         <div className="relative group">
@@ -184,19 +186,19 @@ const GetQuoteForm = () => {
             name="projectType"
             value={formData.projectType}
             onChange={handleChange}
-            className="w-full px-5 py-3.5 rounded-xl bg-white/3 border border-white/8 text-white focus:outline-none focus:border-accent-blue/50 focus:bg-white/5 transition-all duration-300 appearance-none cursor-pointer"
+            className="w-full px-5 py-3.5 rounded-xl bg-foreground/3 border border-foreground/8 text-foreground focus:outline-none focus:border-accent-blue/50 focus:bg-foreground/5 transition-all duration-300 appearance-none cursor-pointer"
           >
             {projectTypes.map((type) => (
               <option
                 key={type.value}
                 value={type.value}
-                className="bg-[#0a0a1a] text-white"
+                className="bg-surface text-foreground"
               >
                 {type.label}
               </option>
             ))}
           </select>
-          <div className="absolute right-5 top-1/2 -translate-y-1/2 pointer-events-none text-white/20">
+          <div className="absolute right-5 top-1/2 -translate-y-1/2 pointer-events-none text-foreground/20">
             <ChevronRight className="w-4 h-4 rotate-90" />
           </div>
         </div>
@@ -204,7 +206,7 @@ const GetQuoteForm = () => {
 
       {/* Message */}
       <div className="space-y-2">
-        <label className="text-[10px] uppercase tracking-[0.2em] text-white/40 ml-1">
+        <label className="text-[10px] uppercase tracking-[0.2em] text-foreground/40 ml-1">
           {t("labels.description")}
         </label>
         <div className="relative group">
@@ -215,7 +217,7 @@ const GetQuoteForm = () => {
             value={formData.message}
             onChange={handleChange}
             placeholder={t("placeholders.description")}
-            className="w-full px-5 py-4 rounded-xl bg-white/3 border border-white/8 text-white placeholder:text-white/10 focus:outline-none focus:border-accent-blue/50 focus:bg-white/5 transition-all duration-300 resize-none"
+            className="w-full px-5 py-4 rounded-xl bg-foreground/3 border border-foreground/8 text-foreground placeholder:text-foreground/20 focus:outline-none focus:border-accent-blue/50 focus:bg-foreground/5 transition-all duration-300 resize-none"
           />
           <div className="absolute inset-0 rounded-xl bg-accent-blue/5 opacity-0 group-focus-within:opacity-100 pointer-events-none transition-opacity duration-300" />
         </div>

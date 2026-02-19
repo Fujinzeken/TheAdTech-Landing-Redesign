@@ -7,9 +7,11 @@ import Image from "next/image";
 import Link from "next/link";
 import OrbitalVisual from "./OrbitalVisual";
 import { useTranslations } from "next-intl";
+import { useTheme } from "next-themes";
 
 const Hero = () => {
   const t = useTranslations("Hero");
+  const { theme } = useTheme();
   const spotlightRef = useRef<HTMLDivElement>(null);
 
   const marqueeKeys = [
@@ -93,9 +95,9 @@ const Hero = () => {
                 animate="visible"
                 className="mb-6"
               >
-                <div className="inline-flex items-center gap-2.5 px-4 py-2 rounded-full border border-white/6 bg-white/3">
+                <div className="inline-flex items-center gap-2.5 px-4 py-2 rounded-full border border-foreground/10 bg-foreground/5">
                   <span className="status-dot" />
-                  <span className="text-[12px] text-white/40 tracking-wide">
+                  <span className="text-[12px] text-muted tracking-wide">
                     {t("status")}
                   </span>
                 </div>
@@ -129,7 +131,7 @@ const Hero = () => {
                 variants={fadeUp}
                 initial="hidden"
                 animate="visible"
-                className="text-base md:text-lg text-white/60 max-w-md leading-relaxed mb-10"
+                className="text-base md:text-lg text-foreground/60 max-w-md leading-relaxed mb-10"
               >
                 {t("subtitle")}
               </motion.p>
@@ -171,11 +173,11 @@ const Hero = () => {
 
                 <Link
                   href="/portfolio"
-                  className="group inline-flex items-center gap-2 text-sm text-white/60 hover:text-white/80 transition-colors duration-300"
+                  className="group inline-flex items-center gap-2 text-sm text-foreground/60 hover:text-foreground/90 transition-colors duration-300"
                 >
                   <span className="relative">
                     {t("ctaWork")}
-                    <span className="absolute left-0 bottom-[-2px] w-0 group-hover:w-full h-px bg-white/30 transition-all duration-300" />
+                    <span className="absolute left-0 bottom-[-2px] w-0 group-hover:w-full h-px bg-foreground/30 transition-all duration-300" />
                   </span>
                   <ArrowRight
                     size={14}
@@ -206,17 +208,17 @@ const Hero = () => {
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ delay: 1.2, duration: 1 }}
-          className="border-t border-b border-white/4 py-5 overflow-hidden"
+          className="border-t border-b border-foreground/5 py-5 overflow-hidden"
         >
           <div className="marquee-track">
             {/* Double the items for seamless loop */}
             {[...marqueeKeys, ...marqueeKeys].map((key, i) => (
               <span
                 key={i}
-                className="flex items-center gap-6 px-6 text-[11px] uppercase tracking-[0.25em] text-white/40 font-medium whitespace-nowrap"
+                className="flex items-center gap-6 px-6 text-[11px] uppercase tracking-[0.25em] text-foreground/40 font-medium whitespace-nowrap"
               >
                 <span>{t(`marquee.${key}`)}</span>
-                <span className="w-1 h-1 rounded-full bg-white/20" />
+                <span className="w-1 h-1 rounded-full bg-foreground/20" />
               </span>
             ))}
           </div>
@@ -229,7 +231,7 @@ const Hero = () => {
           transition={{ delay: 1.6, duration: 1 }}
           className="py-14"
         >
-          <p className="text-center text-[10px] uppercase tracking-[0.25em] text-white/60 mb-8">
+          <p className="text-center text-[10px] uppercase tracking-[0.25em] text-foreground/60 mb-8">
             {t("trust")}
           </p>
           <div className="flex flex-wrap items-center justify-center gap-10 md:gap-14 px-6 max-w-5xl mx-auto">
@@ -260,7 +262,13 @@ const Hero = () => {
                 animate={{ opacity: 1 }}
                 transition={{ delay: 1.8 + i * 0.08, duration: 0.5 }}
                 className={`grayscale opacity-30 hover:opacity-70 transition-all duration-300 cursor-default ${
-                  logo.light ? "" : "invert"
+                  theme === "light"
+                    ? logo.light
+                      ? "invert"
+                      : ""
+                    : logo.light
+                      ? ""
+                      : "invert"
                 }`}
               >
                 <div

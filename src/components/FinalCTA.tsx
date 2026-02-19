@@ -32,7 +32,7 @@ const FinalCTA = () => {
             <span className="text-gradient-main">{t("headline.line3")}</span>
           </h2>
 
-          <p className="text-white/70 text-base md:text-lg leading-relaxed max-w-xl mx-auto mb-10">
+          <p className="text-foreground/70 text-base md:text-lg leading-relaxed max-w-xl mx-auto mb-10">
             {t("subtitle")}
           </p>
 
@@ -64,7 +64,7 @@ const FinalCTA = () => {
 
             <a
               href="mailto:info@theadtech.uz"
-              className="text-sm text-white/50 hover:text-white transition-colors duration-300"
+              className="text-sm text-foreground/50 hover:text-foreground transition-colors duration-300"
             >
               {t("ctaEmail")} →
             </a>

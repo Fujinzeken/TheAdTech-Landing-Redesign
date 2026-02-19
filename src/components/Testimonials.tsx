@@ -66,7 +66,7 @@ const Testimonials = () => {
               }}
               className="group relative"
             >
-              <div className="h-full p-7 md:p-8 rounded-2xl border border-white/5 bg-white/2 hover:bg-white/4 hover:border-white/10 transition-all duration-500">
+              <div className="h-full p-7 md:p-8 rounded-2xl border border-foreground/5 bg-foreground/2 hover:bg-foreground/4 hover:border-foreground/10 transition-all duration-500">
                 {/* Quote mark */}
                 <div
                   className="text-4xl text-accent-violet/20 mb-4 leading-none"
@@ -90,7 +90,7 @@ const Testimonials = () => {
 
                 {/* Quote */}
                 <p
-                  className="text-sm text-white/70 leading-relaxed mb-6 italic"
+                  className="text-sm text-foreground/70 leading-relaxed mb-6 italic"
                   style={{ fontFamily: "var(--font-syne)" }}
                 >
                   {t(`items.${item.key}.quote`)}
@@ -99,7 +99,7 @@ const Testimonials = () => {
                 {/* Author */}
                 <div className="flex items-center gap-3 mt-auto">
                   {/* Avatar Image */}
-                  <div className="relative w-10 h-10 rounded-full overflow-hidden border border-white/10">
+                  <div className="relative w-10 h-10 rounded-full overflow-hidden border border-foreground/10">
                     <Image
                       src={item.image}
                       alt={t(`items.${item.key}.author`)}
@@ -109,12 +109,12 @@ const Testimonials = () => {
                   </div>
                   <div>
                     <div
-                      className="text-sm font-semibold text-white/80"
+                      className="text-sm font-semibold text-foreground/80"
                       style={{ fontFamily: "var(--font-space)" }}
                     >
                       {t(`items.${item.key}.author`)}
                     </div>
-                    <div className="text-[11px] text-white/50">
+                    <div className="text-[11px] text-foreground/50">
                       {t(`items.${item.key}.role`)}
                     </div>
                   </div>

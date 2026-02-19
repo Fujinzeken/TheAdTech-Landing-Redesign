@@ -4,6 +4,8 @@ import React from "react";
 import { motion } from "framer-motion";
 import Image from "next/image";
 import { useTranslations } from "next-intl";
+import { useTheme } from "next-themes";
+import { useEffect, useState } from "react";
 
 const clientLogos = [
   { name: "Akhmad Tea", path: "/images/logos/akhmad-tea.png" },
@@ -16,6 +18,12 @@ const clientLogos = [
 
 const Clients = () => {
   const t = useTranslations("Clients");
+  const { theme } = useTheme();
+  const [mounted, setMounted] = useState(false);
+
+  useEffect(() => {
+    setMounted(true);
+  }, []);
 
   return (
     <section id="portfolio" className="relative py-20 overflow-hidden">
@@ -25,14 +33,14 @@ const Clients = () => {
           whileInView={{ opacity: 1 }}
           viewport={{ once: true }}
           transition={{ duration: 0.7 }}
-          className="text-center text-[10px] uppercase tracking-[0.25em] text-white/60 mb-10"
+          className="text-center text-[10px] uppercase tracking-[0.25em] text-foreground/60 mb-10"
         >
           {t("label")}
         </motion.p>
       </div>
 
       {/* Marquee */}
-      <div className="relative overflow-hidden border-t border-b border-white/3 py-10">
+      <div className="relative overflow-hidden border-t border-b border-foreground/5 py-10">
         {/* Fade edges */}
         <div className="absolute left-0 top-0 bottom-0 w-32 bg-linear-to-r from-background to-transparent z-10 pointer-events-none" />
         <div className="absolute right-0 top-0 bottom-0 w-32 bg-linear-to-l from-background to-transparent z-10 pointer-events-none" />
@@ -43,7 +51,13 @@ const Clients = () => {
               <div
                 key={i}
                 className={`flex items-center justify-center px-12 grayscale opacity-40 hover:opacity-80 transition-all duration-500 cursor-default shrink-0 ${
-                  logo.light ? "" : "invert"
+                  mounted && theme === "light"
+                    ? logo.light
+                      ? "invert"
+                      : ""
+                    : logo.light
+                      ? ""
+                      : "invert"
                 }`}
               >
                 <div

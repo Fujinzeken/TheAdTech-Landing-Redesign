@@ -6,6 +6,7 @@ import { Menu, X, ArrowUpRight } from "lucide-react";
 import Image from "next/image";
 import { useTranslations } from "next-intl";
 import LanguageSwitcher from "./LanguageSwitcher";
+import { ThemeToggle } from "./ThemeToggle";
 import { Link } from "@/i18n/navigation";
 
 const Navbar = () => {
@@ -78,7 +79,7 @@ const Navbar = () => {
                 <Link
                   key={link.name}
                   href={link.href}
-                  className="relative px-3.5 py-2 text-[13px] text-white/60 hover:text-white/90 transition-colors duration-200"
+                  className="relative px-3.5 py-2 text-[13px] text-foreground/60 hover:text-foreground/90 transition-colors duration-200"
                 >
                   {link.name}
                 </Link>
@@ -87,24 +88,26 @@ const Navbar = () => {
 
             {/* Desktop CTA & Language */}
             <div className="hidden lg:flex items-center gap-3">
+              <ThemeToggle />
               <LanguageSwitcher />
               <Link
                 href="/get-quote"
-                className="group inline-flex items-center gap-1.5 px-4 py-2 rounded-lg text-[13px] font-medium text-white/80 hover:text-white border border-white/8 hover:border-accent-violet/30 bg-white/3 hover:bg-accent-violet/10 transition-all duration-300"
+                className="group inline-flex items-center gap-1.5 px-4 py-2 rounded-lg text-[13px] font-medium text-foreground/80 hover:text-foreground border border-foreground/8 hover:border-accent-violet/30 bg-foreground/3 hover:bg-accent-violet/10 transition-all duration-300"
               >
                 {t("getQuote")}
                 <ArrowUpRight
                   size={13}
-                  className="text-white/30 group-hover:text-accent-violet transition-colors duration-300"
+                  className="text-foreground/30 group-hover:text-accent-violet transition-colors duration-300"
                 />
               </Link>
             </div>
 
             {/* Mobile Toggle */}
             <div className="lg:hidden flex items-center gap-2">
+              <ThemeToggle />
               <button
                 onClick={() => setMobileOpen(!mobileOpen)}
-                className="w-9 h-9 flex items-center justify-center rounded-lg text-white/60 hover:text-white/80 border border-white/6 hover:border-white/12 transition-all duration-200"
+                className="w-9 h-9 flex items-center justify-center rounded-lg text-foreground/60 hover:text-foreground/80 border border-foreground/6 hover:border-foreground/12 transition-all duration-200"
                 aria-label={t("toggleMenu")}
               >
                 {mobileOpen ? <X size={16} /> : <Menu size={16} />}
@@ -141,7 +144,7 @@ const Navbar = () => {
                   <Link
                     href={link.href}
                     onClick={() => setMobileOpen(false)}
-                    className="text-2xl font-semibold text-white/60 hover:text-white transition-colors duration-200 py-2 block"
+                    className="text-2xl font-semibold text-foreground/60 hover:text-foreground transition-colors duration-200 py-2 block"
                     style={{ fontFamily: "var(--font-syne)" }}
                   >
                     {link.name}

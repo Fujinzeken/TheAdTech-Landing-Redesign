@@ -55,7 +55,7 @@ const Footer = () => {
   ];
 
   return (
-    <footer className="relative border-t border-white/4">
+    <footer className="relative border-t border-foreground/5">
       <div className="max-w-7xl mx-auto px-6 md:px-10 py-16 md:py-20">
         <div className="grid grid-cols-1 md:grid-cols-[1.5fr_1fr_1fr_1.5fr] gap-12 md:gap-8">
           {/* Brand column */}
@@ -78,12 +78,12 @@ const Footer = () => {
                 <span className="text-gradient-main ml-0.5">AdTech</span>
               </span>
             </Link>
-            <p className="text-sm text-white/60 leading-relaxed max-w-xs mb-8">
+            <p className="text-sm text-foreground/60 leading-relaxed max-w-xs mb-8">
               {t("description")}
             </p>
             <div className="flex items-center gap-1.5 opacity-60">
               <span className="status-dot animate-pulse" />
-              <span className="text-[11px] text-white/40 font-medium uppercase tracking-wider">
+              <span className="text-[11px] text-foreground/40 font-medium uppercase tracking-wider">
                 {t("status")}
               </span>
             </div>
@@ -92,7 +92,7 @@ const Footer = () => {
           {/* Link columns */}
           {Object.entries(footerLinks).map(([title, links]) => (
             <div key={title}>
-              <h4 className="text-[11px] uppercase tracking-[0.2em] text-white/20 font-semibold mb-6">
+              <h4 className="text-[11px] uppercase tracking-[0.2em] text-foreground/20 font-semibold mb-6">
                 {title}
               </h4>
               <ul className="space-y-4">
@@ -100,7 +100,7 @@ const Footer = () => {
                   <li key={link.name}>
                     <Link
                       href={link.href}
-                      className="text-sm text-white/60 hover:text-white transition-colors duration-300 flex items-center group"
+                      className="text-sm text-foreground/60 hover:text-foreground transition-colors duration-300 flex items-center group"
                     >
                       <span className="w-0 overflow-hidden group-hover:w-3 transition-all duration-300 opacity-0 group-hover:opacity-100 text-blue-500 mr-0">
                         —
@@ -117,7 +117,7 @@ const Footer = () => {
 
           {/* Contact Column */}
           <div>
-            <h4 className="text-[11px] uppercase tracking-[0.2em] text-white/20 font-semibold mb-6">
+            <h4 className="text-[11px] uppercase tracking-[0.2em] text-foreground/20 font-semibold mb-6">
               {t("sections.contact")}
             </h4>
             <div className="space-y-5">
@@ -133,10 +133,10 @@ const Footer = () => {
                   }
                   className="flex items-start gap-3.5 group cursor-pointer"
                 >
-                  <div className="mt-0.5 w-8 h-8 rounded-full bg-white/3 border border-white/5 flex items-center justify-center text-white/30 group-hover:text-white group-hover:bg-blue-500/10 group-hover:border-blue-500/20 transition-all duration-300 shadow-sm">
+                  <div className="mt-0.5 w-8 h-8 rounded-full bg-foreground/3 border border-foreground/5 flex items-center justify-center text-foreground/30 group-hover:text-foreground group-hover:bg-blue-500/10 group-hover:border-blue-500/20 transition-all duration-300 shadow-sm">
                     {item.icon}
                   </div>
-                  <span className="text-sm text-white/60 group-hover:text-white transition-colors duration-300 leading-snug pt-1.5">
+                  <span className="text-sm text-foreground/60 group-hover:text-foreground transition-colors duration-300 leading-snug pt-1.5">
                     {item.text}
                   </span>
                 </a>
@@ -149,7 +149,7 @@ const Footer = () => {
                     href={social.href}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="w-10 h-10 rounded-xl bg-white/3 border border-white/5 flex items-center justify-center text-white/30 hover:text-white hover:bg-linear-to-br hover:from-blue-600/20 hover:to-purple-600/20 hover:border-white/10 transition-all duration-500 group shadow-lg"
+                    className="w-10 h-10 rounded-xl bg-foreground/3 border border-foreground/5 flex items-center justify-center text-foreground/30 hover:text-foreground hover:bg-linear-to-br hover:from-blue-600/20 hover:to-purple-600/20 hover:border-foreground/10 transition-all duration-500 group shadow-lg"
                   >
                     <div className="group-hover:scale-110 transition-transform duration-300">
                       {social.icon}
@@ -162,20 +162,20 @@ const Footer = () => {
         </div>
 
         {/* Bottom bar */}
-        <div className="mt-16 pt-8 border-t border-white/4 flex flex-col md:flex-row items-center justify-between gap-6">
-          <p className="text-[11px] text-white/40 font-medium">
+        <div className="mt-16 pt-8 border-t border-foreground/5 flex flex-col md:flex-row items-center justify-between gap-6">
+          <p className="text-[11px] text-foreground/40 font-medium">
             {t("rights", { year: new Date().getFullYear() })}
           </p>
           <div className="flex items-center gap-8">
             <Link
               href="/privacy"
-              className="text-[11px] text-white/40 hover:text-white transition-colors uppercase tracking-widest font-medium"
+              className="text-[11px] text-foreground/40 hover:text-foreground transition-colors uppercase tracking-widest font-medium"
             >
               {t("privacy")}
             </Link>
             <Link
               href="/terms"
-              className="text-[11px] text-white/40 hover:text-white transition-colors uppercase tracking-widest font-medium"
+              className="text-[11px] text-foreground/40 hover:text-foreground transition-colors uppercase tracking-widest font-medium"
             >
               {t("terms")}
             </Link>
